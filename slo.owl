@@ -1,0 +1,206 @@
+@prefix : <http://purl.org/slo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/slo/> .
+
+<http://purl.org/slo/> rdf:type owl:Ontology ;
+                       
+                       rdfs:label "Software Lifecycle Ontology" ;
+                       
+                       owl:versionInfo 1.0 ;
+                       
+                       <http://purl.org/dc/elements/1.1/title> "The Software Lifecycle Ontology" ;
+                       
+                       <http://purl.org/dc/elements/1.1/date> "30-06-2015" ;
+                       
+                       <http://purl.org/dc/elements/1.1/rights> "This vocabulary is licensed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
+                       
+                       <http://purl.org/dc/elements/1.1/description> "This is the top level ontology for describing a process in the lifecycle of an ontology. The ontology conforms to the ISO/IEC 12207 standard for  Systems and software engineering — Software life cycle processes. The terminology used in the ontology conforms to ISO/IEC TR 24774:2010(E). All subprocesses will require to import this module." ;
+                       
+                       <http://purl.org/dc/elements/1.1/creator> "Monika Solanki" ;
+                       
+                       owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
+                                   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
+                                   <http://www.w3.org/ns/prov-o-20130430> .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://purl.org/slo/hasActivity
+
+:hasActivity rdf:type owl:ObjectProperty ;
+             
+             rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent> .
+
+
+
+###  http://purl.org/slo/hasInformationItem
+
+:hasInformationItem rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent> .
+
+
+
+###  http://purl.org/slo/hasOutcome
+
+:hasOutcome rdf:type owl:ObjectProperty .
+
+
+
+###  http://purl.org/slo/hasOutput
+
+:hasOutput rdf:type owl:ObjectProperty ;
+           
+           rdfs:subPropertyOf :hasOutcome .
+
+
+
+###  http://purl.org/slo/hasTask
+
+:hasTask rdf:type owl:ObjectProperty ;
+         
+         rdfs:domain :Activity ;
+         
+         rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith> ,
+                            <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent> .
+
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent> rdfs:range :Task .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://purl.org/slo/hasPurpose
+
+:hasPurpose rdf:type owl:DatatypeProperty ;
+            
+            rdfs:label "has Purpose" ;
+            
+            rdfs:comment """The purpose of the process is stated as a high level, overall goal for performing the process. In cases where
+processes might be thought to overlap, the purpose should be used to characterize the scope or bounds of the process.
+Whenever possible, the purpose should be succinctly captured in a single sentence.""" .
+
+
+
+###  http://purl.org/slo/hasTitle
+
+:hasTitle rdf:type owl:DatatypeProperty ;
+          
+          rdfs:label "has Title" ;
+          
+          rdfs:comment """The title of a process description is a short noun phrase that presents a descriptive heading for the process.
+The title identifies the principle concern of the process and distinguishes the process from other processes in
+the model.""" .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://purl.org/slo/Activity
+
+:Activity rdf:type owl:Class ;
+          
+          rdfs:label "Activity" ;
+          
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action> ,
+                          <http://www.w3.org/ns/prov#Activity> ;
+          
+          <http://purl.org/dc/elements/1.1/description> """Activities describe a set of actions that might be
+undertaken to execute the process.
+Activities are constructs for grouping together related tasks. 
+The activities provide a means to look
+at related tasks within the process to improve understanding and communication of the process.""" .
+
+
+
+###  http://purl.org/slo/InformationItem
+
+:InformationItem rdf:type owl:Class ;
+                 
+                 rdfs:label "Information Item" ;
+                 
+                 rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> ;
+                 
+                 <http://purl.org/dc/elements/1.1/description> """Information items are process products that are of particular interest to life cycle management. Information items are separately identifiable bodies of information that are produced and stored for human use during a
+system or software life cycle. In other words they are the outputs from and inputs to system and software life cycle processes and are transformed by these processes.""" .
+
+
+
+###  http://purl.org/slo/ProcessOutcome
+
+:ProcessOutcome rdf:type owl:Class ;
+                
+                rdfs:label "Process Outcome" ;
+                
+                <http://purl.org/dc/elements/1.1/description> "Observable result of the successful achievement of the process purpose" .
+
+
+
+###  http://purl.org/slo/ProcessOutput
+
+:ProcessOutput rdf:type owl:Class ;
+               
+               rdfs:label "Process Output" ;
+               
+               rdfs:subClassOf :ProcessOutcome ;
+               
+               <http://purl.org/dc/elements/1.1/description> "Observable result of the successful achievement of the process purpose" .
+
+
+
+###  http://purl.org/slo/SoftwareLifecycleProcess
+
+:SoftwareLifecycleProcess rdf:type owl:Class ;
+                          
+                          rdfs:label "Software Lifecycle Process" ;
+                          
+                          rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process> ;
+                          
+                          rdfs:comment """The generic software lifecycle process. It is a specialisation of the Process entity from the DUL ontology. 
+
+ISO:12207: set of interrelated or interacting activities which transforms inputs into outputs""" .
+
+
+
+###  http://purl.org/slo/Task
+
+:Task rdf:type owl:Class ;
+      
+      rdfs:label "Task" ;
+      
+      rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action> ;
+      
+      <http://purl.org/dc/elements/1.1/description> "" .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
