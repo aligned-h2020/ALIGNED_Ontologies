@@ -8,7 +8,99 @@
 
 <http://aligned-project.eu/vocabulary/data-lifecycle> rdf:type owl:Ontology ;
                                                       
-                                                      owl:imports <http://www.w3.org/ns/prov-o-20130430> .
+                                                      <http://purl.org/dc/terms/modified> "01/07/2015"^^xsd:dateTime ;
+                                                      
+                                                      <http://purl.org/dc/terms/hasVersion> "1.0"^^xsd:string ;
+                                                      
+                                                      <http://purl.org/dc/terms/title> "Data Lifecycle Ontology"^^xsd:string ;
+                                                      
+                                                      <http://purl.org/dc/terms/description> """This ontology provides a description of the data lifecycle used in the ALIGNED project (www.aligned-project.eu). 
+
+The competetncy questions questions the ontology answers need to be defined."""^^xsd:string ;
+                                                      
+                                                      <http://purl.org/dc/terms/publisher> "Trinity College Dublin"^^xsd:dateTime ;
+                                                      
+                                                      owl:imports <http://purl.org/dc/elements/1.1/> ,
+                                                                  <http://www.w3.org/ns/prov-o-20130430> .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#consumes
+
+:consumes rdf:type owl:ObjectProperty ;
+          
+          rdfs:domain :Process ;
+          
+          rdfs:range <http://www.w3.org/ns/prov#Entity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#hasRole
+
+:hasRole rdf:type owl:ObjectProperty ;
+         
+         rdfs:domain <http://www.w3.org/ns/prov#Person> ;
+         
+         rdfs:range <http://www.w3.org/ns/prov#Role> ;
+         
+         rdfs:domain <http://www.w3.org/ns/prov#SoftwareAgent> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#initiates
+
+:initiates rdf:type owl:ObjectProperty ;
+           
+           rdfs:range :Process ;
+           
+           rdfs:domain <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#isResponsibleFor
+
+:isResponsibleFor rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:range :Process ;
+                  
+                  rdfs:domain <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#isSupportedBy
+
+:isSupportedBy rdf:type owl:ObjectProperty ;
+               
+               owl:inverseOf :supports .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#produces
+
+:produces rdf:type owl:ObjectProperty ;
+          
+          rdfs:domain :Process ;
+          
+          rdfs:range <http://www.w3.org/ns/prov#Entity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#supports
+
+:supports rdf:type owl:ObjectProperty ;
+          
+          rdfs:range :Process ;
+          
+          rdfs:domain :Tool .
+
+
+
 
 
 #################################################################
@@ -22,7 +114,79 @@
 
 :Classification rdf:type owl:Class ;
                 
-                rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+                rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Collection
+
+:Collection rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Consumer
+
+:Consumer rdf:type owl:Class ;
+          
+          rdfs:subClassOf <http://www.w3.org/ns/prov#Role> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Creation
+
+:Creation rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Data_Architect
+
+:Data_Architect rdf:type owl:Class ;
+                
+                rdfs:subClassOf <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Data_Engineer
+
+:Data_Engineer rdf:type owl:Class ;
+               
+               rdfs:subClassOf <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Data_Source
+
+:Data_Source rdf:type owl:Class ;
+             
+             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Dataset
+
+:Dataset rdf:type owl:Class ;
+         
+         rdfs:subClassOf <http://www.w3.org/ns/prov#Collection> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Domain_Expert
+
+:Domain_Expert rdf:type owl:Class ;
+               
+               rdfs:subClassOf <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Elaboration
+
+:Elaboration rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Process .
 
 
 
@@ -30,7 +194,7 @@
 
 :Evolution rdf:type owl:Class ;
            
-           rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+           rdfs:subClassOf :Process .
 
 
 
@@ -38,7 +202,23 @@
 
 :Extraction rdf:type owl:Class ;
             
-            rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+            rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Filtering
+
+:Filtering rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#HTML
+
+:HTML rdf:type owl:Class ;
+      
+      rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
 
 
 
@@ -46,7 +226,63 @@
 
 :Interlinking rdf:type owl:Class ;
               
-              rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+              rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Interpretation
+
+:Interpretation rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#JStore
+
+:JStore rdf:type owl:Class ;
+        
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Merging
+
+:Merging rdf:type owl:Class ;
+         
+         rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Prefiltering
+
+:Prefiltering rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Process
+
+:Process rdf:type owl:Class ;
+         
+         rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Processor
+
+:Processor rdf:type owl:Class ;
+           
+           rdfs:subClassOf <http://www.w3.org/ns/prov#Role> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Publishing
+
+:Publishing rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Process .
 
 
 
@@ -54,7 +290,7 @@
 
 :Quality_Analysis rdf:type owl:Class ;
                   
-                  rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+                  rdfs:subClassOf :Process .
 
 
 
@@ -62,7 +298,15 @@
 
 :Querying rdf:type owl:Class ;
           
-          rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+          rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Report
+
+:Report rdf:type owl:Class ;
+        
+        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
 
 
 
@@ -70,7 +314,7 @@
 
 :Revision rdf:type owl:Class ;
           
-          rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+          rdfs:subClassOf :Process .
 
 
 
@@ -78,7 +322,7 @@
 
 :Search rdf:type owl:Class ;
         
-        rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+        rdfs:subClassOf :Process .
 
 
 
@@ -86,7 +330,47 @@
 
 :Storage rdf:type owl:Class ;
          
-         rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> .
+         rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#System_Administrator
+
+:System_Administrator rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf <http://www.w3.org/ns/prov#Person> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Tool
+
+:Tool rdf:type owl:Class ;
+      
+      rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Updating
+
+:Updating rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Process .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Web_Resource
+
+:Web_Resource rdf:type owl:Class ;
+              
+              rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+
+
+
+###  http://aligned-project.eu/vocabulary/data-lifecycle#Wiki
+
+:Wiki rdf:type owl:Class ;
+      
+      rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
 
 
 
