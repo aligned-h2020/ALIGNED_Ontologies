@@ -15,13 +15,11 @@
                        
                        dc:title "The Design Intent Ontology" ;
                        
-                       dc:language "The scope of the ontology is the domain of desgin intent or design rationale that needs to be documented while undertaking the desgin of any artifact." ;
-                       
-                       dc:title "" ;
-                       
                        dc:description "A design intent or design rationale is an explicit documentation of the reasons behind decisions made when designing a system or artifact." ;
                        
                        dc:creator "Monika Solanki (monika.solanki@cs.ox.ac.uk)"@en ;
+                       
+                       dc:description "The scope of the ontology is the domain of desgin intent or design rationale that needs to be documented while undertaking the desgin of any artifact." ;
                        
                        owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
                                    <http://www.w3.org/ns/prov-o-20130430> .
@@ -458,16 +456,16 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                       
                       rdfs:subClassOf [ rdf:type owl:Class ;
                                         owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                               owl:onProperty :createdOn ;
-                                                               owl:someValuesFrom xsd:dateTime
-                                                             ]
-                                                             [ rdf:type owl:Restriction ;
                                                                owl:onProperty :description ;
                                                                owl:someValuesFrom xsd:string
                                                              ]
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty :version ;
                                                                owl:someValuesFrom xsd:string
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://www.w3.org/ns/prov#generatedAtTime> ;
+                                                               owl:someValuesFrom xsd:dateTime
                                                              ]
                                                            )
                                       ] ;
