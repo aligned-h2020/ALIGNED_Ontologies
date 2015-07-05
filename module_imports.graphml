@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
-  <!--Created by yEd 3.14.2-->
-  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.12.2-->
+  <key for="graphml" id="d0" yfiles.type="resources"/>
   <key for="port" id="d1" yfiles.type="portgraphics"/>
   <key for="port" id="d2" yfiles.type="portgeometry"/>
   <key for="port" id="d3" yfiles.type="portuserdata"/>
   <key attr.name="url" attr.type="string" for="node" id="d4"/>
   <key attr.name="description" attr.type="string" for="node" id="d5"/>
   <key for="node" id="d6" yfiles.type="nodegraphics"/>
-  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="Description" attr.type="string" for="graph" id="d7"/>
   <key attr.name="url" attr.type="string" for="edge" id="d8"/>
   <key attr.name="description" attr.type="string" for="edge" id="d9"/>
   <key for="edge" id="d10" yfiles.type="edgegraphics"/>
   <graph edgedefault="directed" id="G">
-    <data key="d0"/>
+    <data key="d7"/>
     <node id="n0" yfiles.foldertype="group">
       <data key="d6">
         <y:ProxyAutoBoundsNode>
@@ -21,7 +21,7 @@
             <y:GroupNode>
               <y:Geometry height="52.84375" width="265.0325297078415" x="306.03147820163497" y="115.08816189236148"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="265.0325297078415" x="0.0" y="0.0">&lt;http://purl.org/slo/&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -51,7 +51,7 @@
           <y:Geometry height="56.32373046875" width="265.0325297078415" x="306.03147820163497" y="212.240180121528"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="41.6875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="265.71875" x="-0.3431101460791979" y="7.318115234375">"The top level Software
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="41.6875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="265.71875" x="-0.3431101460792547" y="7.318115234375">"The top level Software
  Lifecycle Ontology (SLO) module"</y:NodeLabel>
         </y:UMLNoteNode>
       </data>
@@ -63,7 +63,7 @@
             <y:GroupNode>
               <y:Geometry height="52.84375" width="248.50444598160368" x="-13.252222990801613" y="224.8381890190978"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="248.50444598160368" x="0.0" y="0.0">&lt;http://purl.org/slo/agp/&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -93,7 +93,7 @@
           <y:Geometry height="74.70263671875" width="179.3120435967303" x="21.343978201635082" y="331.5534667968756"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="41.6875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="134.21875" x="22.546646798365146" y="16.507568359374943">"The Agreement 
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="41.6875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="134.21875" x="22.546646798365146" y="16.507568359375">"The Agreement 
 Process module"</y:NodeLabel>
         </y:UMLNoteNode>
       </data>
@@ -105,7 +105,7 @@ Process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="52.84375" width="248.50444598160368" x="678.4015758167618" y="5.3381347656251705"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="248.50444598160368" x="0.0" y="0.0">&lt;http://purl.org/slo/opp&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -147,7 +147,7 @@ Project-Enabling Process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="56.32373046875" width="248.50444598160368" x="678.4015758167618" y="224.8381890190978"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="248.50444598160368" x="0.0" y="0.0">&lt;http://purl.org/slo/prp&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -189,7 +189,7 @@ Project-Enabling Process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="52.84375" width="248.50444598160368" x="719.0265758167618" y="115.08816189236148"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="248.50444598160368" x="0.0" y="0.0">&lt;http://purl.org/slo/trp&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -231,7 +231,7 @@ process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="56.32373046875" width="248.50444598160368" x="-60.12722299080161" y="113.34817165798648"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="250.125" x="-0.8102770091981597" y="0.0">&lt;http://www.purl.org/slo/sip&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -273,7 +273,7 @@ Process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="52.84375" width="248.50444598160368" x="-13.252222990801613" y="5.3381347656251705"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="252.046875" x="-1.7712145091981597" y="0.0">&lt;http://www.purl.org/slo/srp&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -315,7 +315,7 @@ Process module"</y:NodeLabel>
             <y:GroupNode>
               <y:Geometry height="52.84375" width="248.50444598160368" x="306.03147820163497" y="5.3381347656251705"/>
               <y:Fill hasColor="false" transparent="false"/>
-              <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
+              <y:BorderStyle color="#666699" type="dashed" width="2.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasLineColor="false" height="22.84375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="248.50444598160368" x="0.0" y="0.0">&lt;http://www.example.com&gt;</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="90.4052734375" closedWidth="458.7734375" innerGraphDisplayEnabled="false"/>
@@ -533,7 +533,7 @@ Process module"</y:NodeLabel>
       </data>
     </edge>
   </graph>
-  <data key="d7">
+  <data key="d0">
     <y:Resources/>
   </data>
 </graphml>

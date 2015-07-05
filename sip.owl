@@ -1,0 +1,201 @@
+@prefix : <http://purl.org/slo/sip/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/slo/sip/> .
+
+<http://purl.org/slo/sip/> rdf:type owl:Ontology ;
+                           
+                           <http://purl.org/dc/elements/1.1/description> """The purpose of the Software Implementation Process ontology  is to provide a set of conceptual entities to represent a specified system element implemented as a software product or service. 
+
+This ontology imports the Software Lifecycle Ontology (SLO) available at http://purl.org/slo/. It also utilises concepts defined in the SEON ontologies available at http://www.se-on.org/
+
+""" ;
+                           
+                           <http://purl.org/dc/elements/1.1/creator> "Monika Solanki" ;
+                           
+                           <http://purl.org/dc/elements/1.1/title> "The Software Implementation Process ontology" ;
+                           
+                           <http://purl.org/dc/elements/1.1/rights> "This vocabulary is licensed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
+                           
+                           owl:versionInfo "1.0" ;
+                           
+                           <http://purl.org/dc/elements/1.1/date> "05-07-2015" ;
+                           
+                           owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
+                                       <http://purl.org/slo/> ,
+                                       <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
+                                       <http://www.w3.org/ns/prov-o#> .
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.purl.org/slo/sip/SoftwareArchitecturalDesign
+
+<http://www.purl.org/slo/sip/SoftwareArchitecturalDesign> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:label "Software architectural design" ;
+                                                          
+                                                          rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareArchitecturalDesignProcess
+
+<http://www.purl.org/slo/sip/SoftwareArchitecturalDesignProcess> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:label "Software Architectural Design Process" ;
+                                                                 
+                                                                 rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                                   owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
+                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                          owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareArchitecturalDesign>
+                                                                                                        ]
+                                                                                                      )
+                                                                                 ] ;
+                                                                 
+                                                                 rdfs:comment """The purpose of Software Requirements Analysis Proce
+ss is to establish the requirements of the software 
+elements of the system. """ .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareConstruction
+
+<http://www.purl.org/slo/sip/SoftwareConstruction> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:label "Software construction" ;
+                                                   
+                                                   rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareConstructionProcess
+
+<http://www.purl.org/slo/sip/SoftwareConstructionProcess> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:label "Software Construction Process" ;
+                                                          
+                                                          rdfs:subClassOf <http://www.purl.org/slo/sip/SoftwareImplementationProcess> ;
+                                                          
+                                                          rdfs:comment "The purpose of the Software Construction Process is to produce executable software units that properly reflect the software design. " .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareDetailedDesign
+
+<http://www.purl.org/slo/sip/SoftwareDetailedDesign> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:label "Software detailed design" ;
+                                                     
+                                                     rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareDetailedDesignProcess
+
+<http://www.purl.org/slo/sip/SoftwareDetailedDesignProcess> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:label "Software Detailed Design Process" ;
+                                                            
+                                                            rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                              owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                     owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareDetailedDesign>
+                                                                                                   ]
+                                                                                                 )
+                                                                            ] ;
+                                                            
+                                                            rdfs:comment """The purpose of the Software Detailed Design Process is
+ to provide a design for the software that implements 
+and can be verified against the requirements and the software 
+architecture and is sufficiently detailed to permit 
+coding and testing""" .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareImplementationProcess
+
+<http://www.purl.org/slo/sip/SoftwareImplementationProcess> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:label "Software Implementation Process" ;
+                                                            
+                                                            rdfs:subClassOf <http://purl.org/slo/SoftwareLifecycleProcess> ;
+                                                            
+                                                            rdfs:comment """This process transforms specified behaviour, interfaces
+ and implementation constraints into actions that 
+create a system element impl
+emented as a software product or service,
+ otherwise known as a \"software item.\" 
+This process results in a software item that satisfies 
+architectural design requirements through verification and 
+stakeholder requirements through validation. """ .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareIntegration
+
+<http://www.purl.org/slo/sip/SoftwareIntegration> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:label "Software integration" ;
+                                                  
+                                                  rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareIntegrationProcess
+
+<http://www.purl.org/slo/sip/SoftwareIntegrationProcess> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:label "Software Integration Process " ;
+                                                         
+                                                         rdfs:subClassOf <http://www.purl.org/slo/sip/SoftwareImplementationProcess> ;
+                                                         
+                                                         rdfs:comment """The purpose of the Software Integration Process is 
+to combine the software units and software components, 
+producing integrated software items, co
+nsistent with the software design, 
+that demonstrate that the functional 
+and non-functional software requirements are satisfied on 
+an equivalent or complete operational platform.  """ .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareRequirementsAnalysis
+
+<http://www.purl.org/slo/sip/SoftwareRequirementsAnalysis> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:label "Software requirements analysis" ;
+                                                           
+                                                           rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
+###  http://www.purl.org/slo/sip/SoftwareRequirementsAnalysisProcess
+
+<http://www.purl.org/slo/sip/SoftwareRequirementsAnalysisProcess> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:label "Software Requirements Analysis Process" ;
+                                                                  
+                                                                  rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                                    owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                           owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareRequirementsAnalysis>
+                                                                                                         ]
+                                                                                                       )
+                                                                                  ] .
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
