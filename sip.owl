@@ -224,7 +224,11 @@ an equivalent or complete operational platform.  """ .
                                                                                                            owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareRequirementsAnalysis>
                                                                                                          ]
                                                                                                        )
-                                                                                  ] .
+                                                                                  ] ;
+                                                                  
+                                                                  rdfs:comment """The purpose of Software Requirements Analysis Proce
+ss is to establish the requirements of the software 
+elements of the system. """ .
 
 
 
