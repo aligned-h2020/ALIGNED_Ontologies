@@ -37,6 +37,16 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
 #################################################################
 
 
+###  http://purl.org/slo/sip/SoftwareImplementationStrategy
+
+<http://purl.org/slo/sip/SoftwareImplementationStrategy> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:label "Software implementation strategy" ;
+                                                         
+                                                         rdfs:subClassOf <http://purl.org/slo/Activity> .
+
+
+
 ###  http://www.purl.org/slo/sip/SoftwareArchitecturalDesign
 
 <http://www.purl.org/slo/sip/SoftwareArchitecturalDesign> rdf:type owl:Class ;
@@ -84,7 +94,14 @@ elements of the system. """ .
                                                           
                                                           rdfs:label "Software Construction Process" ;
                                                           
-                                                          rdfs:subClassOf <http://www.purl.org/slo/sip/SoftwareImplementationProcess> ;
+                                                          rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                            owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                   owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareConstruction>
+                                                                                                 ]
+                                                                                               )
+                                                                          ] ;
                                                           
                                                           rdfs:comment "The purpose of the Software Construction Process is to produce executable software units that properly reflect the software design. " .
 
@@ -129,7 +146,14 @@ coding and testing""" .
                                                             
                                                             rdfs:label "Software Implementation Process" ;
                                                             
-                                                            rdfs:subClassOf <http://purl.org/slo/SoftwareLifecycleProcess> ;
+                                                            rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                              owl:intersectionOf ( <http://purl.org/slo/SoftwareLifecycleProcess>
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                     owl:someValuesFrom <http://purl.org/slo/sip/SoftwareImplementationStrategy>
+                                                                                                   ]
+                                                                                                 )
+                                                                            ] ;
                                                             
                                                             rdfs:comment """This process transforms specified behaviour, interfaces
  and implementation constraints into actions that 
@@ -158,7 +182,14 @@ stakeholder requirements through validation. """ .
                                                          
                                                          rdfs:label "Software Integration Process " ;
                                                          
-                                                         rdfs:subClassOf <http://www.purl.org/slo/sip/SoftwareImplementationProcess> ;
+                                                         rdfs:subClassOf [ rdf:type owl:Class ;
+                                                                           owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
+                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                  owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareIntegration>
+                                                                                                ]
+                                                                                              )
+                                                                         ] ;
                                                          
                                                          rdfs:comment """The purpose of the Software Integration Process is 
 to combine the software units and software components, 
@@ -194,6 +225,7 @@ an equivalent or complete operational platform.  """ .
                                                                                                          ]
                                                                                                        )
                                                                                   ] .
+
 
 
 
