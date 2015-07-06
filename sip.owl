@@ -1,6 +1,7 @@
 @prefix : <http://purl.org/slo/sip/#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix slo: <http://purl.org/slo/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -24,7 +25,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                            
                            owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
                                        <http://purl.obolibrary.org/obo/swo.owl> ,
-                                       <http://purl.org/slo/> ,
+                                       slo: ,
                                        <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
                                        <http://www.w3.org/ns/prov-o#> .
 
@@ -38,7 +39,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
 
 ###  http://purl.obolibrary.org/obo/IAO_0000030
 
-<http://purl.obolibrary.org/obo/IAO_0000030> owl:equivalentClass <http://purl.org/slo/InformationItem> .
+<http://purl.obolibrary.org/obo/IAO_0000030> owl:equivalentClass slo:InformationItem .
 
 
 
@@ -53,7 +54,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                 
                                 rdfs:label "Software implementation strategy" ;
                                 
-                                rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                rdfs:subClassOf slo:Activity .
 
 
 
@@ -63,7 +64,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                           
                                                           rdfs:label "Software architectural design" ;
                                                           
-                                                          rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                                          rdfs:subClassOf slo:Activity .
 
 
 
@@ -76,7 +77,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                                  rdfs:subClassOf [ rdf:type owl:Class ;
                                                                                    owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                          owl:onProperty slo:hasActivity ;
                                                                                                           owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareArchitecturalDesign>
                                                                                                         ]
                                                                                                       )
@@ -92,7 +93,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                    
                                                    rdfs:label "Software construction" ;
                                                    
-                                                   rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                                   rdfs:subClassOf slo:Activity .
 
 
 
@@ -105,7 +106,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                           rdfs:subClassOf [ rdf:type owl:Class ;
                                                                             owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                   owl:onProperty slo:hasActivity ;
                                                                                                    owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareConstruction>
                                                                                                  ]
                                                                                                )
@@ -121,7 +122,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                      
                                                      rdfs:label "Software detailed design" ;
                                                      
-                                                     rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                                     rdfs:subClassOf slo:Activity .
 
 
 
@@ -134,7 +135,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                             rdfs:subClassOf [ rdf:type owl:Class ;
                                                                               owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                     owl:onProperty slo:hasActivity ;
                                                                                                      owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareDetailedDesign>
                                                                                                    ]
                                                                                                  )
@@ -151,9 +152,9 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                             rdfs:label "Software Implementation Process" ;
                                                             
                                                             rdfs:subClassOf [ rdf:type owl:Class ;
-                                                                              owl:intersectionOf ( <http://purl.org/slo/SoftwareLifecycleProcess>
+                                                                              owl:intersectionOf ( slo:SoftwareLifecycleProcess
                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                     owl:onProperty slo:hasActivity ;
                                                                                                      owl:someValuesFrom :SoftwareImplementationStrategy
                                                                                                    ]
                                                                                                  )
@@ -170,7 +171,7 @@ emented as a software product or service, otherwise known as a \"software item.\
                                                   
                                                   rdfs:label "Software integration" ;
                                                   
-                                                  rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                                  rdfs:subClassOf slo:Activity .
 
 
 
@@ -183,7 +184,7 @@ emented as a software product or service, otherwise known as a \"software item.\
                                                          rdfs:subClassOf [ rdf:type owl:Class ;
                                                                            owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                  owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                  owl:onProperty slo:hasActivity ;
                                                                                                   owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareIntegration>
                                                                                                 ]
                                                                                               )
@@ -200,7 +201,7 @@ and non-functional software requirements are satisfied on an equivalent or compl
                                                            
                                                            rdfs:label "Software requirements analysis" ;
                                                            
-                                                           rdfs:subClassOf <http://purl.org/slo/Activity> .
+                                                           rdfs:subClassOf slo:Activity .
 
 
 
@@ -213,7 +214,7 @@ and non-functional software requirements are satisfied on an equivalent or compl
                                                                   rdfs:subClassOf [ rdf:type owl:Class ;
                                                                                     owl:intersectionOf ( <http://www.purl.org/slo/sip/SoftwareImplementationProcess>
                                                                                                          [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty <http://purl.org/slo/hasActivity> ;
+                                                                                                           owl:onProperty slo:hasActivity ;
                                                                                                            owl:someValuesFrom <http://www.purl.org/slo/sip/SoftwareRequirementsAnalysis>
                                                                                                          ]
                                                                                                        )

@@ -22,13 +22,15 @@ The terminology used in the ontology conforms to ISO/IEC TR 24774:2010(E). All s
                        
                        <http://purl.org/dc/elements/1.1/date> "30-06-2015" ;
                        
+                       <http://purl.org/dc/elements/1.1/description> <http://windermere.aston.ac.uk/~solankm2/ontologies/aligned/images/slo.jpg> ;
+                       
                        <http://purl.org/dc/elements/1.1/rights> "This vocabulary is licensed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
                        
                        <http://purl.org/dc/elements/1.1/creator> "Monika Solanki" ;
                        
                        owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
                                    <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
-                                   <http://www.w3.org/ns/prov-o-20130430> .
+                                   <http://www.w3.org/ns/prov-o#> .
 
 
 #################################################################
