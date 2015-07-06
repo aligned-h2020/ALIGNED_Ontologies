@@ -25,8 +25,8 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                            <http://purl.org/dc/elements/1.1/date> "05-07-2015" ;
                            
                            owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
-                                       <http://purl.org/slo/> ,
                                        <http://purl.obolibrary.org/obo/swo.owl> ,
+                                       <http://purl.org/slo/> ,
                                        <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
                                        <http://www.w3.org/ns/prov-o#> .
 
@@ -49,7 +49,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
 
 
 
-###  http://purl.org/slo/sip/SoftwareImplementationStrategy
+###  http://purl.org/slo/sip/#SoftwareImplementationStrategy
 
 :SoftwareImplementationStrategy rdf:type owl:Class ;
                                 
@@ -84,9 +84,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                                                                                                       )
                                                                                  ] ;
                                                                  
-                                                                 rdfs:comment """The purpose of Software Requirements Analysis Proce
-ss is to establish the requirements of the software 
-elements of the system. """ .
+                                                                 rdfs:comment "The purpose of Software Requirements Analysis Process is to establish the requirements of the software elements of the system." .
 
 
 
@@ -144,11 +142,7 @@ elements of the system. """ .
                                                                                                  )
                                                                             ] ;
                                                             
-                                                            rdfs:comment """The purpose of the Software Detailed Design Process is
- to provide a design for the software that implements 
-and can be verified against the requirements and the software 
-architecture and is sufficiently detailed to permit 
-coding and testing""" .
+                                                            rdfs:comment "The purpose of the Software Detailed Design Process is to provide a design for the software that implements and can be verified against the requirements and the software architecture and is sufficiently detailed to permit coding and testing" .
 
 
 
@@ -167,14 +161,8 @@ coding and testing""" .
                                                                                                  )
                                                                             ] ;
                                                             
-                                                            rdfs:comment """This process transforms specified behaviour, interfaces
- and implementation constraints into actions that 
-create a system element impl
-emented as a software product or service,
- otherwise known as a \"software item.\" 
-This process results in a software item that satisfies 
-architectural design requirements through verification and 
-stakeholder requirements through validation. """ .
+                                                            rdfs:comment """This process transforms specified behaviour, interfaces and implementation constraints into actions that create a system element impl
+emented as a software product or service, otherwise known as a \"software item.\" This process results in a software item that satisfies architectural design requirements through verification and stakeholder requirements through validation.""" .
 
 
 
@@ -203,13 +191,9 @@ stakeholder requirements through validation. """ .
                                                                                               )
                                                                          ] ;
                                                          
-                                                         rdfs:comment """The purpose of the Software Integration Process is 
-to combine the software units and software components, 
-producing integrated software items, co
-nsistent with the software design, 
-that demonstrate that the functional 
-and non-functional software requirements are satisfied on 
-an equivalent or complete operational platform.  """ .
+                                                         rdfs:comment """The purpose of the Software Integration Process is to combine the software units and software components, producing integrated software items, co
+nsistent with the software design, that demonstrate that the functional 
+and non-functional software requirements are satisfied on an equivalent or complete operational platform.""" .
 
 
 
@@ -238,9 +222,7 @@ an equivalent or complete operational platform.  """ .
                                                                                                        )
                                                                                   ] ;
                                                                   
-                                                                  rdfs:comment """The purpose of Software Requirements Analysis Proce
-ss is to establish the requirements of the software 
-elements of the system. """ .
+                                                                  rdfs:comment "The purpose of Software Requirements Analysis Process is to establish the requirements of the software elements of the system." .
 
 
 
