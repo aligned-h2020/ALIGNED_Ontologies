@@ -11,6 +11,8 @@
                            
                            owl:versionInfo "1.0" ;
                            
+                           <http://purl.org/dc/elements/1.1/description> <http://windermere.aston.ac.uk/~solankm2/ontologies/aligned/images/module_imports.jpg> ;
+                           
                            <http://purl.org/dc/elements/1.1/creator> "Monika Solanki" ;
                            
                            <http://purl.org/dc/elements/1.1/rights> "This vocabulary is licensed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
