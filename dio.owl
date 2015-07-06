@@ -15,7 +15,8 @@
                        
                        dc:title "The Design Intent Ontology" ;
                        
-                       dc:description "A design intent or design rationale is an explicit documentation of the reasons behind decisions made when designing a system or artifact." ;
+                       dc:description <http://windermere.aston.ac.uk/~solankm2/ontologies/aligned/images/dio.jpg> ,
+                                      "A design intent or design rationale is an explicit documentation of the reasons behind decisions made when designing a system or artifact." ;
                        
                        dc:creator "Monika Solanki (monika.solanki@cs.ox.ac.uk)"@en ;
                        
