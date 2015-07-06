@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
+     xml:base="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl">
+        <rdfs:comment>This ontology is part of SEON. It represents object-oriented code.</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#accessesField -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#accessesField">
+        <rdfs:comment>Fields can be accessed (i.e., its value can be read and/or set) from within a method or constructor. The inverse property is isAccessedByMethod.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#catchesException -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#catchesException">
+        <rdfs:comment>An exception can be caught in a method.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#constructorIsInvokedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#constructorIsInvokedBy">
+        <rdfs:comment>A constructor can be called by another constructor or a method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#containsCodeEntity -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#containsCodeEntity">
+        <rdfs:comment>Files can contain various code entities, such as classes, methods, etc.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#File"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresConstructor -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresConstructor">
+        <rdfs:comment>A class can declare one or several constructors. The inverse property is isDeclaredConstructorOf.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasChild"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresField -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresField">
+        <rdfs:comment>A class or interface can declare zero, one, or several fields.
+
+If an interface declares a field then the field has to be final, i.e., a constant.
+
+Note that a class inherits all fields from its superclass(es). This property is only applicable to fields that are explicitely declared in the given class.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasChild"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresMethod -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresMethod">
+        <rdfs:comment>A class or interface can declare zero, one, or several methods.
+
+If an interface declares a method then the method has to be abstract, i.e., it cannot have a body.
+
+Note that a class can inherited additional methods from its superclass(es). This property is only applicable to method that are explicitely declared in the given class.
+
+The inverse property is isDeclaredMethodOf.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasChild"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#expectsDatatype -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#expectsDatatype">
+        <rdfs:comment>A method can expect one or several (potentially different) datatypes as parameter.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasParameter"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasDatatype"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasAccessModifier -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasAccessModifier">
+        <rdfs:comment>Types, constructors, fields, and methods can have their visibility defined.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AccessModifier"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasDatatype -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasDatatype">
+        <rdfs:comment>Variables in statically checked programming languages do have a type.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDatatypeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasNamespaceMember -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasNamespaceMember">
+        <rdfs:comment>A namespace can contain type definitions.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasChild"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasParameter">
+        <rdfs:comment>Constructors and methods can have one or several parameters.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isParameterOf"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasChild"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasReturnType -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasReturnType">
+        <rdfs:comment>A method can return a value of a certain type.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isReturnTypeOf"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubClass -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubClass">
+        <rdfs:comment>A class can have a subclass.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubInterface -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubInterface">
+        <rdfs:comment>An interface can have a subinterface.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype">
+        <rdfs:comment>Classes or interfaces can have subtypes.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperClass -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperClass">
+        <rdfs:comment>A class can inherit from another class.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubClass"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperInterface -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperInterface">
+        <rdfs:comment>Interfaces can inherit from other interfaces.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubInterface"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperType -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperType">
+        <rdfs:comment>Types can inherit from other types.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#implementsInterface -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#implementsInterface">
+        <rdfs:comment>A class can implement one or more interfaces and become a subtype of them like that.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperType"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isImplementedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#instantiatesClass -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#instantiatesClass">
+        <rdfs:comment>A constructor or method can create a new instance of a class.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesConstructor"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredConstructorOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesConstructor -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesConstructor">
+        <rdfs:comment>A constructor or method can invoke a constructor, leading to a new instance of the invoked constructor eventually.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#constructorIsInvokedBy"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesMethod -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesMethod">
+        <rdfs:comment>A constructor or method can invoke another method.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isAccessedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isAccessedBy">
+        <rdfs:comment>Fields are accessed by methods or constructors.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#accessesField"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isCaughtBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isCaughtBy">
+        <rdfs:comment>Exceptions are caught within a method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#catchesException"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDatatypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDatatypeOf">
+        <rdfs:comment>A variable can have a datatype.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredConstructorOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredConstructorOf">
+        <rdfs:comment>A constructor can be declared for a class or enum type.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresConstructor"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasParent"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredFieldOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredFieldOf">
+        <rdfs:comment>A field can be declared in a complex type.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresField"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasParent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredMethodOf">
+        <rdfs:comment>A method can be declared as part of a type definition.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresMethod"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasParent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isExpectedDatatype -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isExpectedDatatype">
+        <rdfs:comment>A datatype is expected as a method&apos;s parameter.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDatatypeOf"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isParameterOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isImplementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isImplementedBy">
+        <rdfs:comment>An interface can be implemented by a class.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSubtype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isInstantiatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isInstantiatedBy">
+        <rdfs:comment>Classes are instantiated when their constructor is called by another constructor or a method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#instantiatesClass"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isNamespaceMemberOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isNamespaceMemberOf">
+        <rdfs:comment>Complex types are declared in a namespace.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasNamespaceMember"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasParent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isParameterOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isParameterOf">
+        <rdfs:comment>Parameters belong to a method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#hasParent"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isReturnTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isReturnTypeOf">
+        <rdfs:comment>A variable of a certain datatype can be returned by method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isThrownBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isThrownBy">
+        <rdfs:comment>An exception can be thrown by a method.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#methodIsInvokedBy -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#methodIsInvokedBy">
+        <rdfs:comment>Methods can be invoked by constructors or other methods.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesMethod"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#throwsException -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#throwsException">
+        <rdfs:comment>A method can throw an exception.</rdfs:comment>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType"/>
+        <owl:inverseOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isThrownBy"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#usesComplexType -->
+
+    <owl:ObjectProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#usesComplexType">
+        <rdfs:comment>One class can use another, when the first class&apos; methods invoke  or access methods or fields of the other class.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#declaresMethod"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#invokesMethod"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isDeclaredMethodOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasCodeIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasCodeIdentifier">
+        <rdfs:comment>Code entities, such as classes, methods, variables, etc. have an identifier. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasDoc -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasDoc">
+        <rdfs:comment>Code can be documented.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasLength -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasLength">
+        <rdfs:comment>The lexical length of an entity within a source file.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasPosition -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasPosition">
+        <rdfs:comment>The ordering of the parameters of a method is crucial, e.g., for method overloading. This property allows to preserve that information.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isAbstract -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isAbstract">
+        <rdfs:comment>Classes and methods can be declared abstract. If a class is abstract, it cannot have any instances. However, it can be extended by a non-abstract subclass. If a method is declared abstract then it cannot have a body. Instead, an implementation needs to be provided by a subclass (or the subclass needs to be abstract itself).
+
+Annotations and interfaces are implicitly abstract and, accordingly, their methods too.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isConstant -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isConstant">
+        <rdfs:comment>A variable can be declared to be constant. In this case, it is not possible to change its value after initialisation.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isStatic -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#isStatic">
+        <rdfs:comment>Fields and Methods can be declared as static. They will then belong to the class rather than to the instance.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#startsAt -->
+
+    <owl:DatatypeProperty rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#startsAt">
+        <rdfs:comment>The offset of the entity&apos;s declaration within a source file.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method"/>
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AccessModifier -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AccessModifier">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing"/>
+        <rdfs:comment>Many object-oriented programming language use access-modifiers to control information hiding. The individuals of this class are to be defined in system-specific ontologies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:comment>Annotations are a mechanism for associating a meta-tag with program elements.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:comment>A class is a programming language construct that is used as a blueprint to create objects. This blueprint describes the state and behavior that the created objects all share. An object created by a class is an instance of the class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:comment>Common superclass for all entities that are modelled in the SEON code ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:comment>Complex (aka. compound/composite)  types are constructed recursively, starting from primitive types. In addition, they can define fields and methods.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:comment>Constructors are used to create an instance of a class in object-orientation.
+
+In some languages, a constructor is a special method. However, e.g., Java Interfaces and Annotations cannot have constructors. Further a constructor&apos;s signature often differs from a method&apos;s one. Constructor signatures can only have access modifiers, i.e., they cannot be &apos;abstract&apos;, &apos;final&apos;, &apos;native&apos;, &apos;static&apos;, or synchronized. They cannot return anything and they need to have the same identifier as the class they&apos;re defined in.
+
+Because of this differences, we did not model Constructor as a subclass of Method.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:comment>A datatype describes the representation, interpretation, and structure of values or objects stored in computer memory.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:comment>An enum type is a type whose fields consist of a fixed set of constants. Common examples include compass directions (values of NORTH, SOUTH, EAST, and WEST) and the days of the week. They are sometimes defined using the keyword &apos;enum&apos;. Their class body can include methods and other fields in some languages. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType"/>
+        <rdfs:comment>An exception is a programming language construct designed to handle the occurrence of special conditions that change the normal flow of execution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+        <rdfs:comment>Fields are either class or instance variables. Class variables are considered static.
+
+When a number of objects are created from the same class blueprint, they each have their own distinct copies of instance variables. Two distinct objects of person might for example have different values for their names.
+
+Class variables are common to all objects: Every instance of the class shares a class variable, which is in one fixed location in memory. Any object can change the value of a class variable, but class variables can also be manipulated without creating an instance of the class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType"/>
+        <rdfs:comment>Interfaces form a contract between a class and the outside world, and this contract is enforced at build time by the compiler. If a class claims to implement an interface, all methods defined by that interface must appear in its source code before the class will successfully compile.
+
+Interfaces may only contain method signatures and constant declarations (variable declarations which are declared to be both static and final). An interface may never contain method bodies.
+
+As interfaces are implicitly abstract, they cannot be directly instantiated except when instantiated by a class which implements the said interface.
+
+Interfaces simulate multiple inheritance - a mechanism that many languages otherwise would not provide. Interfaces can extend other interfaces but they cannot implement them.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:comment>A method is a subroutine that is exclusively associated either with a class (in which case it is called a class method or a static method) or with an object (in which case it is an instance method). Like a subroutine in procedural programming languages, a method usually consists of a sequence of programming statements to perform an action, a set of input parameters to customize those actions, and possibly an output value (called the return value) of some kind. Methods provide a mechanism for accessing and manipulating the encapsulated data stored in an object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:comment>Namespaces are a mechanism for organizing classes into namespaces; they provide a unique namespace for the types it contains.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable"/>
+        <rdfs:comment>A parameter is a special kind of variable that refers to data that a method or constructor receives to operate on. A method or constructor can expect zero, one, or several parameters.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#PrimitiveType -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#PrimitiveType">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Datatype"/>
+        <rdfs:comment>A primitive type is a basic building block for complex types. It has a single value (e.g., an integer, boolean, byte, etc.), but it does not have any behaviour (aka. methods).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable -->
+
+    <owl:Class rdf:about="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity"/>
+        <rdfs:comment>A variable is an identifier (letter, word, or phrase) that is linked to a value of a certain type. </rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
