@@ -26,7 +26,7 @@ This ontology imports the Software Lifecycle Ontology (SLO) available at http://
                            
                            owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl> ,
                                        <http://purl.org/slo/> ,
-                                       <http://www.ebi.ac.uk/swo/swo.owl> ,
+                                       <http://purl.obolibrary.org/obo/swo.owl> ,
                                        <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
                                        <http://www.w3.org/ns/prov-o#> .
 
