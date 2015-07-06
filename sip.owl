@@ -18,9 +18,7 @@
                            
                            <http://purl.org/dc/elements/1.1/description> """The purpose of the Software Implementation Process ontology  is to provide a set of conceptual entities to represent a specified system element implemented as a software product or service. 
 
-This ontology imports the Software Lifecycle Ontology (SLO) available at http://purl.org/slo/. It also utilises concepts defined in the SEON ontologies available at http://www.se-on.org/
-
-""" ;
+This ontology imports the Software Lifecycle Ontology (SLO) available at http://purl.org/slo/. It also utilises concepts defined in the SEON ontologies available at http://www.se-on.org/ and the Software ontology (SWO) available at http://purl.obolibrary.org/obo/swo.owl. Agents using this ontology are strongly recommended to exploit the various terms and relationships defined within SWO and SEON for asserting the requirements of their implementation processes.""" ;
                            
                            <http://purl.org/dc/elements/1.1/date> "05-07-2015" ;
                            
@@ -191,8 +189,7 @@ emented as a software product or service, otherwise known as a \"software item.\
                                                                                               )
                                                                          ] ;
                                                          
-                                                         rdfs:comment """The purpose of the Software Integration Process is to combine the software units and software components, producing integrated software items, co
-nsistent with the software design, that demonstrate that the functional 
+                                                         rdfs:comment """The purpose of the Software Integration Process is to combine the software units and software components, producing integrated software items, consistent with the software design, that demonstrate that the functional 
 and non-functional software requirements are satisfied on an equivalent or complete operational platform.""" .
 
 
