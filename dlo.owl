@@ -29,7 +29,7 @@
         <dc:description rdf:datatype="&xsd;string">The purpose of the Data Lifecycle Ontology is to provide a set of conceptual entities, agents, activities, and roles to represent the general data engineering process. Furthermore, it is the basis for deriving specific domain ontologies which represent lifecycles of concrete data engineering projects such as DBpedia or Seshat.
 
 This ontology imports the W3C PROV ontology available at http://www.w3.org/TR/prov-o/. It also utilises concepts defined in the LOD2 project available at http://stack.lod2.eu/blog/.</dc:description>
-		<dc:description rdf:resource="http://img2.wikia.nocookie.net/__cb20140126002343/degrassi/images/0/09/The-Fourth-Doctor-doctor-who-22491789-800-600.png"/>
+		<dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/Data%20Lifecycle%20Ontology.svg"/>
 		<rdfs:comment>This ontology provides a description of the data lifecycle used in the ALIGNED project (http://aligned-project.eu). 
 
 It captures various processes involved in the lifecycle of data and answeres the following questions:
