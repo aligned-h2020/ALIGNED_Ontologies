@@ -41,7 +41,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 - Which agents, processes, and entities are involved in a lifecycle run?</rdfs:comment>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
         <dc:date>08-07-2015</dc:date>
-        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
+        <dc:contributor>Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
     </owl:Ontology>
