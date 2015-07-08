@@ -26,7 +26,11 @@
         <dc:creator rdf:datatype="&xsd;string">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
         <terms:title rdf:datatype="&xsd;string">Data Lifecycle Ontology</terms:title>
         <dc:contributor rdf:datatype="&xsd;string">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
-        <dc:description rdf:datatype="&xsd;string">This ontology provides a description of the data lifecycle used in the ALIGNED project (www.aligned-project.eu). 
+        <dc:description rdf:datatype="&xsd;string">The purpose of the Data Lifecycle Ontology is to provide a set of conceptual entities, agents, activities, and roles to represent the general data engineering process. Furthermore, it is the basis for deriving specific domain ontologies which represent lifecycles of concrete data engineering projects such as DBpedia or Seshat.
+
+This ontology imports the W3C PROV ontology available at http://www.w3.org/TR/prov-o/. It also utilises concepts defined in the LOD2 project available at http://stack.lod2.eu/blog/.</dc:description>
+		<dc:description>https://www.scss.tcd.ie/~bozicb/images/Data%20Lifecycle%20Ontology.svg</dc:description>
+		<rdfs:comment>This ontology provides a description of the data lifecycle used in the ALIGNED project (http://aligned-project.eu). 
 
 It captures various processes involved in the lifecycle of data and answeres the following questions:
 
@@ -34,8 +38,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 - What is the next lifecycle stage for a particular data item? (workflows)
 - What is the appropriate widget or form to display this data item in for a specific user role, given the data item’s state (lifecycle stage)
 - What is the context for a specific data item (dataset name/URI/meta-data URI, PROV records, …)
-- Which agents, processes, and entities are involved in a lifecycle run?</dc:description>
-		<rdfs:comment>test</rdfs:comment>
+- Which agents, processes, and entities are involved in a lifecycle run?</rdfs:comment>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
         <dc:date>08-07-2015</dc:date>
         <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
