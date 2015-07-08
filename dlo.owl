@@ -34,7 +34,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 - What is the next lifecycle stage for a particular data item? (workflows)
 - What is the appropriate widget or form to display this data item in for a specific user role, given the data item’s state (lifecycle stage)
 - What is the context for a specific data item (dataset name/URI/meta-data URI, PROV records, …)
-- Which agents, processes, and entities are involved in a lifecycle run?</terms:description>
+- Which agents, processes, and entities are involved in a lifecycle run?</dc:description>
 		<rdfs:comment>test</rdfs:comment>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
         <dc:date>08-07-2015</dc:date>
