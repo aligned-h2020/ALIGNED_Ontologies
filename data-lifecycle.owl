@@ -53,6 +53,16 @@ The competetncy questions questions the ontology answers need to be defined."""^
 
 
 
+###  http://aligned-project.eu/vocabulary/data-lifecycle#hasStage
+
+:hasStage rdf:type owl:ObjectProperty ;
+          
+          rdfs:domain :Dataset ;
+          
+          rdfs:range :Process .
+
+
+
 ###  http://aligned-project.eu/vocabulary/data-lifecycle#initiates
 
 :initiates rdf:type owl:ObjectProperty ;
