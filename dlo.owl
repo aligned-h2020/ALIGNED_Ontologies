@@ -25,7 +25,7 @@
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
         <dc:creator rdf:datatype="&xsd;string">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
         <terms:title rdf:datatype="&xsd;string">Data Lifecycle Ontology</terms:title>
-        <dc:contributor rdf:datatype="&xsd;string">Kevin C. Feeney (kevin.feeney)</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
         <dc:description rdf:datatype="&xsd;string">This ontology provides a description of the data lifecycle used in the ALIGNED project (www.aligned-project.eu). 
 
 It captures various processes involved in the lifecycle of data and answeres the following questions:
@@ -38,7 +38,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 		<rdfs:comment>test</rdfs:comment>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
         <dc:date>08-07-2015</dc:date>
-        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan</dc:contributor>
+        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
     </owl:Ontology>
