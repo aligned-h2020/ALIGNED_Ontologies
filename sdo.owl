@@ -48,6 +48,22 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
     
 
 
+    <!-- http://aligned-project.eu/ontologies/sdo#Candidate -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Candidate">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Consumer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Consumer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/sdo#Creation -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Creation">
@@ -88,10 +104,26 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
     
 
 
+    <!-- http://aligned-project.eu/ontologies/sdo#HTML -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#HTML">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/sdo#Interpretation -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Interpretation">
-        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#JStore -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#JStore">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
     
 
@@ -104,10 +136,34 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
     
 
 
+    <!-- http://aligned-project.eu/ontologies/sdo#MetaReport -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#MetaReport">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/sdo#Prefiltering -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Prefiltering">
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Processor -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Processor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Producer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Producer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
     </owl:Class>
     
 
@@ -128,6 +184,14 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
     
 
 
+    <!-- http://aligned-project.eu/ontologies/sdo#Report -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Report">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/sdo#Revision -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Revision">
@@ -140,6 +204,22 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Updating">
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#WebResource -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#WebResource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Wiki -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Wiki">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
 </rdf:RDF>
 

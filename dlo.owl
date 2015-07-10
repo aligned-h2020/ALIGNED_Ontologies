@@ -30,6 +30,7 @@
 
 This ontology imports the W3C PROV ontology available at http://www.w3.org/TR/prov-o/. It also utilises concepts defined in the LOD2 project available at http://stack.lod2.eu/blog/.</dc:description>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
+        <dc:date>08-07-2015</dc:date>
         <rdfs:comment>This ontology provides a description of the data lifecycle for Linked Data. 
 
 It captures various processes involved in the lifecycle of data and answeres the following questions:
@@ -40,8 +41,9 @@ It captures various processes involved in the lifecycle of data and answeres the
 - What is the context for a specific data item (dataset name/URI/meta-data URI, PROV records, …)?
 - Which agents, processes, and entities are involved in a lifecycle run?</rdfs:comment>
         <dc:contributor>Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
-        <dc:date>08-07-2015</dc:date>
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/Data%20Lifecycle%20Ontology.svg"/>
     </owl:Ontology>
     
@@ -193,6 +195,7 @@ It captures various processes involved in the lifecycle of data and answeres the
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#consumes">
         <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
     </owl:ObjectProperty>
     
 
@@ -237,6 +240,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#isSupportedBy">
         <owl:inverseOf rdf:resource="http://aligned-project.eu/ontologies/dlo#supports"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
     </owl:ObjectProperty>
     
 
@@ -254,8 +258,14 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#supports">
         <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
-        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Tool"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
     
 
 
@@ -286,9 +296,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#Consumer -->
+    <!-- http://aligned-project.eu/ontologies/dlo#DataProcessRole -->
 
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Consumer">
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessRole">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
     </owl:Class>
     
@@ -350,14 +360,6 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#Processor -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Processor">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
-    </owl:Class>
-    
-
-
     <!-- http://aligned-project.eu/ontologies/dlo#Quality -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Quality">
@@ -394,14 +396,6 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#System_Administrator">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Tool -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Tool">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
     </owl:Class>
     
 
