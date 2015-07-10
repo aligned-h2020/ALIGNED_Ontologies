@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aligned-project.eu/ontologies/sdo#"
+     xml:base="http://aligned-project.eu/ontologies/sdo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/sdo">
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for Seshat.</rdfs:comment>
+        <terms:title>Seshat Domain Ontology</terms:title>
+        <dc:publisher>Trinity College Dublin</dc:publisher>
+        <dc:date>09-07-2015</dc:date>
+        <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney</dc:contributor>
+        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan</dc:contributor>
+        <dc:description>The purpose of the Seshat Domain Ontology is to provide a set of concrete entities, agents, activities, and roles to represent the Seshat data engineering process. It is based on the general Data Lifecycle Ontology.
+
+This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
+        <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb</dc:creator>
+        <owl:imports rdf:resource="http://aligned-project.eu/ontologies/dlo"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Creation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Creation">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#DataCollection -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#DataCollection">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Elaboration -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Elaboration">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Extraction -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Extraction">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Filtering -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Filtering">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Interpretation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Interpretation">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Merging -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Merging">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Prefiltering -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Prefiltering">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Publishing -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Publishing">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Querying -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Querying">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Revision -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Revision">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Updating -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Updating">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
