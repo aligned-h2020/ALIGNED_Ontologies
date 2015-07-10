@@ -210,7 +210,6 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#hasStage -->
 
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#hasStage">
-        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Dataset"/>
         <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
     </owl:ObjectProperty>
     
@@ -295,6 +294,14 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
+    <!-- http://aligned-project.eu/ontologies/dlo#DataSource -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataSource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/dlo#Data_Architect -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Data_Architect">
@@ -307,22 +314,6 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Data_Engineer">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Data_Source -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Data_Source">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Dataset -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Dataset">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Collection"/>
     </owl:Class>
     
 
@@ -343,26 +334,10 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#HTML -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#HTML">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    </owl:Class>
-    
-
-
     <!-- http://aligned-project.eu/ontologies/dlo#Interlinking -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Interlinking">
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#JStore -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#JStore">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
     
 
@@ -391,9 +366,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#Report -->
+    <!-- http://aligned-project.eu/ontologies/dlo#Repository -->
 
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Report">
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Repository">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
     
@@ -427,22 +402,6 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Tool">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Web_Resource -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Web_Resource">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Wiki -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Wiki">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
     
 
