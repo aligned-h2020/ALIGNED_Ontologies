@@ -44,7 +44,7 @@ It captures various processes involved in the lifecycle of data and answeres the
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
-        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/Data%20Lifecycle%20Ontology.svg"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/dlo.svg"/>
     </owl:Ontology>
     
 
@@ -296,6 +296,22 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
+    <!-- http://aligned-project.eu/ontologies/dlo#DataArchitect -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataArchitect">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DataEngineer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataEngineer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+    </owl:Class>
+    
+
+
     <!-- http://aligned-project.eu/ontologies/dlo#DataProcessRole -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessRole">
@@ -312,25 +328,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#Data_Architect -->
+    <!-- http://aligned-project.eu/ontologies/dlo#DomainExpert -->
 
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Data_Architect">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Data_Engineer -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Data_Engineer">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
-    </owl:Class>
-    
-
-
-    <!-- http://aligned-project.eu/ontologies/dlo#Domain_Expert -->
-
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Domain_Expert">
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DomainExpert">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
     </owl:Class>
     
@@ -392,9 +392,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#System_Administrator -->
+    <!-- http://aligned-project.eu/ontologies/dlo#SystemAdministrator -->
 
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#System_Administrator">
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#SystemAdministrator">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
     </owl:Class>
     
