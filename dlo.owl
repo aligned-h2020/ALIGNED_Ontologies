@@ -283,7 +283,10 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Authoring -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Authoring">
+        <rdfs:label>Authoring</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>The LOD2 Stack facilitates the authoring of rich semantic knowledge bases, by leveraging Semantic Wiki technology, the WYSIWYM paradigm (What You See Is What You Mean) and distributed social, semantic collaboration
+and networking techniques.</rdfs:comment>
     </owl:Class>
     
 
@@ -291,7 +294,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Classification -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Classification">
+        <rdfs:label>Classification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Linked Data on the Web is mainly raw instance data. For data integration, fusion, search and many other applications, however, we need this raw instance data to be classified into taxonomies. In the LOD2 stack, semi-automatic components for this purpose are included.</rdfs:comment>
     </owl:Class>
     
 
@@ -299,7 +304,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#DataArchitect -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataArchitect">
+        <rdfs:label>Data Architect</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A Data Architect is an increasingly important role. It is a natural evolution from Data Analyst and Database Designer, and reflects the emergence. of Internet Web Sites which need to integrate data from different unrelated Data Sources.</rdfs:comment>
     </owl:Class>
     
 
@@ -307,7 +314,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#DataEngineer -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataEngineer">
+        <rdfs:label>Data Engineer</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>Data engineers are the designers, builders and managers of an information infrastructure. They develop the architecture that helps analyze and process data in the way the organization needs it. And they make sure those systems are performing smoothly. Data science is a team sport.</rdfs:comment>
     </owl:Class>
     
 
@@ -315,7 +324,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#DataProcessRole -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessRole">
+        <rdfs:label>Data Process Role</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>A general role class for roles in the data processing lifecycle.</rdfs:comment>
     </owl:Class>
     
 
@@ -323,7 +334,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#DataSource -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataSource">
+        <rdfs:label>Data Source</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A data source defines where data comes from.</rdfs:comment>
     </owl:Class>
     
 
@@ -331,7 +344,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#DomainExpert -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DomainExpert">
+        <rdfs:label>Domain Expert</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A person who is an authority in a particular area or topic. The term domain expert is frequently used in expert systems software development, and there the term always refers to the domain other than the software domain.</rdfs:comment>
     </owl:Class>
     
 
@@ -339,7 +354,11 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Evolution -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Evolution">
+        <rdfs:label>Evolution/Repair</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Data on the Web is dynamic. We need to facilitate the evolution of data while
+keeping things stable. Changes and modifications to knowledge bases, vocabularies and ontologies should be transparent and observable.
+The LOD2 Stack comprises methods to spot problems in knowledge bases and to automatically suggest repair strategies.</rdfs:comment>
     </owl:Class>
     
 
@@ -347,7 +366,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Interlinking -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Interlinking">
+        <rdfs:label>Interlinking</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Creating and maintaining links in a (semi-)automated fashion is still a major challenge and crucial for establishing coherence and facilitating data integration as outlined in the publishing usage scenario in the introduction. We seek linking approaches yielding high precision and recall, which configure themselves automatically or with end-user feedback.</rdfs:comment>
     </owl:Class>
     
 
@@ -355,7 +376,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Process -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Process">
+        <rdfs:label>Process</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment>A general class for describing specific steps during the processing of linked data.</rdfs:comment>
     </owl:Class>
     
 
@@ -363,7 +386,11 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Quality -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Quality">
+        <rdfs:label>Quality</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>The quality of content on the Data Web varies, as the quality of content on the document web varies. The LOD2 Stack comprises techniques for assessing quality based on characteristics such as provenance, context, coverage or structure. The goal in our application scenarios is
+to assess whether data sources for a publisher are
+complete, consistent, reliable etc.</rdfs:comment>
     </owl:Class>
     
 
@@ -371,7 +398,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Repository -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Repository">
+        <rdfs:label>Repository</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A central location in which data is stored and managed.</rdfs:comment>
     </owl:Class>
     
 
@@ -379,7 +408,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Search -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Search">
+        <rdfs:label>Search/Browsing/Exploration</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>For many users, the Data Web is still invisible below the surface. LOD2 develops search, browsing, exploration and visualization techniques for different kinds of Linked Data (i.e. spatial, temporal, statistical), which make the Data Web sensible for real users.</rdfs:comment>
     </owl:Class>
     
 
@@ -387,7 +418,10 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#Storage -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Storage">
+        <rdfs:label>Storage</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Efficient RDF data management techniques fulfilling requirements of global publishers comprise column-store technology, dynamic query optimization, adaptive caching of joins, optimized graph processing and cluster/cloud
+scalability.</rdfs:comment>
     </owl:Class>
     
 
@@ -395,7 +429,9 @@ It captures various processes involved in the lifecycle of data and answeres the
     <!-- http://aligned-project.eu/ontologies/dlo#SystemAdministrator -->
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#SystemAdministrator">
+        <rdfs:label>System Administrator</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A person who is responsible for managing the data engineering system.</rdfs:comment>
     </owl:Class>
     
 
