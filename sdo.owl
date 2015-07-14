@@ -21,9 +21,10 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/sdo">
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
-        <rdfs:comment>This ontology provides a description of the data lifecycle for Seshat.</rdfs:comment>
         <terms:title>Seshat Domain Ontology</terms:title>
         <dc:publisher>Trinity College Dublin</dc:publisher>
+        <dc:description>https://www.scss.tcd.ie/~bozicb/images/dlo.svg</dc:description>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for Seshat.</rdfs:comment>
         <dc:date>09-07-2015</dc:date>
         <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney</dc:contributor>
         <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan</dc:contributor>
