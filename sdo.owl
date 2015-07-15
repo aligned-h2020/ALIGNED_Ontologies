@@ -23,7 +23,7 @@
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
         <terms:title>E-research in the Social Sciences and Humanities Domain-specific Meta-Model</terms:title>
         <dc:publisher>Trinity College Dublin</dc:publisher>
-        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/sdo.png"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/sdo.svg"/>
         <rdfs:comment>This ontology provides a description of the data lifecycle for e-research in social sciences and humanities.</rdfs:comment>
         <dc:date>09-07-2015</dc:date>
         <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
