@@ -32,7 +32,7 @@
 
 This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
         <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb</dc:creator>
-        <owl:imports rdf:resource="http://aligned-project.eu/ontologies/dlo"/>
+        <owl:imports rdf:resource="https://w3id.org/dlo"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
     </owl:Ontology>
     
