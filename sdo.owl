@@ -26,12 +26,12 @@
         <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/sdo.png"/>
         <rdfs:comment>This ontology provides a description of the data lifecycle for e-research in social sciences and humanities.</rdfs:comment>
         <dc:date>09-07-2015</dc:date>
-        <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney</dc:contributor>
-        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan</dc:contributor>
+        <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
+        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
         <dc:description>The purpose of the E-research in the Social Sciences and Humanities Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
 
 This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
-        <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb</dc:creator>
+        <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
         <owl:imports rdf:resource="https://w3id.org/dlo"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
     </owl:Ontology>
