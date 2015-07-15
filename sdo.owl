@@ -23,7 +23,7 @@
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
         <terms:title>Seshat Domain Ontology</terms:title>
         <dc:publisher>Trinity College Dublin</dc:publisher>
-        <dc:description>https://www.scss.tcd.ie/~bozicb/images/sdo.png</dc:description>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/sdo.png"/>
         <rdfs:comment>This ontology provides a description of the data lifecycle for Seshat.</rdfs:comment>
         <dc:date>09-07-2015</dc:date>
         <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney</dc:contributor>
