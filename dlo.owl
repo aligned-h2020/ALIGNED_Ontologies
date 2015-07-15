@@ -44,7 +44,7 @@ It captures various processes involved in the lifecycle of data and answeres the
         <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
-        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/dlo.svg"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/dlo.png"/>
     </owl:Ontology>
     
 
