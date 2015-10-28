@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aligned-project.eu/ontology/data-lifecycle#"
+     xml:base="http://aligned-project.eu/ontology/data-lifecycle"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/dlo">
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <dc:creator rdf:datatype="&xsd;string">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
+        <terms:title rdf:datatype="&xsd;string">Data Lifecycle Ontology</terms:title>
+        <dc:contributor rdf:datatype="&xsd;string">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
+        <dc:description rdf:datatype="&xsd;string">The purpose of the Data Lifecycle Ontology is to provide a set of conceptual entities, agents, activities, and roles to represent the general data engineering process. Furthermore, it is the basis for deriving specific domain ontologies which represent lifecycles of concrete data engineering projects such as DBpedia or Seshat.
+
+This ontology imports the W3C PROV ontology available at http://www.w3.org/TR/prov-o/. It also utilises concepts defined in the LOD2 project available at http://stack.lod2.eu/blog/.</dc:description>
+        <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
+        <dc:date>08-07-2015</dc:date>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for Linked Data. 
+
+It captures various processes involved in the lifecycle of data and answeres the following questions:
+
+- What lifecycle stage is a specific dataset or data item currently in?
+- What is the next lifecycle stage for a particular data item (workflows)?
+- What is the appropriate widget or form to display this data item in for a specific user role, given the data item’s state (lifecycle stage)?
+- What is the context for a specific data item (dataset name/URI/meta-data URI, PROV records, …)?
+- Which agents, processes, and entities are involved in a lifecycle run?</rdfs:comment>
+        <dc:contributor>Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
+        <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/dlo.svg"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <rdf:Description rdf:about="&dc;contributor">
+        <rdfs:label xml:lang="en">Contributor</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity responsible for making contributions to the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <rdf:Description rdf:about="&dc;creator">
+        <rdfs:label xml:lang="en">Creator</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity primarily responsible for making the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#creator-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <rdf:Description rdf:about="&dc;date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <rdf:Description rdf:about="&dc;description">
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An account of the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="&terms;description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:AnnotationProperty rdf:about="&terms;hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="&terms;issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="&terms;publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="&terms;title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#consumes -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#consumes">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#hasRole">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#hasStage -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#hasStage">
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#initiates -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#initiates">
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#isResponsibleFor -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#isResponsibleFor">
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#isSupportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#isSupportedBy">
+        <owl:inverseOf rdf:resource="http://aligned-project.eu/ontologies/dlo#supports"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#produces -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#produces">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#supports -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#supports">
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Authoring -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Authoring">
+        <rdfs:label>Authoring</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>The LOD2 Stack facilitates the authoring of rich semantic knowledge bases, by leveraging Semantic Wiki technology, the WYSIWYM paradigm (What You See Is What You Mean) and distributed social, semantic collaboration
+and networking techniques.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Classification -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Classification">
+        <rdfs:label>Classification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Linked Data on the Web is mainly raw instance data. For data integration, fusion, search and many other applications, however, we need this raw instance data to be classified into taxonomies. In the LOD2 stack, semi-automatic components for this purpose are included.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DataArchitect -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataArchitect">
+        <rdfs:label>Data Architect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A Data Architect is an increasingly important role. It is a natural evolution from Data Analyst and Database Designer, and reflects the emergence. of Internet Web Sites which need to integrate data from different unrelated Data Sources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DataEngineer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataEngineer">
+        <rdfs:label>Data Engineer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>Data engineers are the designers, builders and managers of an information infrastructure. They develop the architecture that helps analyze and process data in the way the organization needs it. And they make sure those systems are performing smoothly. Data science is a team sport.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DataProcessRole -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessRole">
+        <rdfs:label>Data Process Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>A general role class for roles in the data processing lifecycle.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DataSource -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataSource">
+        <rdfs:label>Data Source</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A data source defines where data comes from.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#DomainExpert -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DomainExpert">
+        <rdfs:label>Domain Expert</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A person who is an authority in a particular area or topic. The term domain expert is frequently used in expert systems software development, and there the term always refers to the domain other than the software domain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Evolution -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Evolution">
+        <rdfs:label>Evolution/Repair</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Data on the Web is dynamic. We need to facilitate the evolution of data while
+keeping things stable. Changes and modifications to knowledge bases, vocabularies and ontologies should be transparent and observable.
+The LOD2 Stack comprises methods to spot problems in knowledge bases and to automatically suggest repair strategies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Interlinking -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Interlinking">
+        <rdfs:label>Interlinking</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Creating and maintaining links in a (semi-)automated fashion is still a major challenge and crucial for establishing coherence and facilitating data integration as outlined in the publishing usage scenario in the introduction. We seek linking approaches yielding high precision and recall, which configure themselves automatically or with end-user feedback.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Process -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Process">
+        <rdfs:label>Process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment>A general class for describing specific steps during the processing of linked data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Quality -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Quality">
+        <rdfs:label>Quality</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>The quality of content on the Data Web varies, as the quality of content on the document web varies. The LOD2 Stack comprises techniques for assessing quality based on characteristics such as provenance, context, coverage or structure. The goal in our application scenarios is
+to assess whether data sources for a publisher are
+complete, consistent, reliable etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Repository -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Repository">
+        <rdfs:label>Repository</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A central location in which data is stored and managed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Search -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Search">
+        <rdfs:label>Search/Browsing/Exploration</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>For many users, the Data Web is still invisible below the surface. LOD2 develops search, browsing, exploration and visualization techniques for different kinds of Linked Data (i.e. spatial, temporal, statistical), which make the Data Web sensible for real users.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Storage -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Storage">
+        <rdfs:label>Storage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Efficient RDF data management techniques fulfilling requirements of global publishers comprise column-store technology, dynamic query optimization, adaptive caching of joins, optimized graph processing and cluster/cloud
+scalability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#SystemAdministrator -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#SystemAdministrator">
+        <rdfs:label>System Administrator</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A person who is responsible for managing the data engineering system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Collection -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Collection"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Person -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Person"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Role -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Role"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/">
+        <terms:modified rdf:datatype="&xsd;date">2012-06-14</terms:modified>
+        <terms:title xml:lang="en">Dublin Core Metadata Element Set, Version 1.1</terms:title>
+        <terms:publisher rdf:resource="http://purl.org/dc/aboutdcmi#DCMI"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;coverage">
+        <rdfs:label xml:lang="en">Coverage</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</terms:description>
+        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;subject">
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2012-06-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">The topic of the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#subject-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;type">
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</terms:description>
+        <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;publisher">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity responsible for making the resource available.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;identifier">
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;relation">
+        <rdfs:label xml:lang="en">Relation</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#relation-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;format">
+        <rdfs:label xml:lang="en">Format</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</terms:description>
+        <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;rights">
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;title">
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A name given to the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#title-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;source">
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A related resource from which the described resource is derived.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#source-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&dc;language">
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

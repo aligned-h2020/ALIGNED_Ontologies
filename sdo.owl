@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://aligned-project.eu/ontologies/sdo#"
+     xml:base="http://aligned-project.eu/ontologies/sdo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/sdo">
+        <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
+        <terms:title>E-research in the Social Sciences and Humanities Domain-specific Meta-Model</terms:title>
+        <dc:publisher>Trinity College Dublin</dc:publisher>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/sdo.svg"/>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for e-research in social sciences and humanities.</rdfs:comment>
+        <dc:date>09-07-2015</dc:date>
+        <dc:contributor xml:lang="cs.tcd.ie)">Kevin C. Feeney (kevin.feeney@cs.tcd.ie)</dc:contributor>
+        <dc:contributor xml:lang="cs.tcd.ie)">Rob Brennan (rob.brennan@cs.tcd.ie)</dc:contributor>
+        <dc:description>The purpose of the E-research in the Social Sciences and Humanities Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
+
+This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
+        <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
+        <owl:imports rdf:resource="https://w3id.org/dlo"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/dlo#Process -->
+
+    <rdf:Description rdf:about="http://aligned-project.eu/ontologies/dlo#Process">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Candidate -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Candidate">
+        <rdfs:label>Candidate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A dataset which is potentially going to be included into the database.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Consumer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Consumer">
+        <rdfs:label>Consumer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>A person or software agent who consumes data from the system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Creation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Creation">
+        <rdfs:label>Creation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Input of new data through a human (e.g. user/domain expert) or machine (e.g. sensor) source.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#DataCollection -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#DataCollection">
+        <rdfs:label>Data Collection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Automatic or semi-automatic input of new data (e.g. through a harvester).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Elaboration -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Elaboration">
+        <rdfs:label>Elaboration</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Addition of new information to already existing data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Extraction -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Extraction">
+        <rdfs:label>Extraction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Gathering of specific information from structured data sources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Filtering -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Filtering">
+        <rdfs:label>Filtering</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Selection of specific information out of a large data set or data base.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#HTML -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#HTML">
+        <rdfs:label>HTML</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>An HTML resource (e.g. a Website).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Interpretation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Interpretation">
+        <rdfs:label>Interpretation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>The way a dataset is actually saved into the system (also includes the format).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#JStore -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#JStore">
+        <rdfs:label>JStore</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>jQuery based client-side storage management.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Merging -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Merging">
+        <rdfs:label>Merging</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Putting data from different sources and/or from spanning different but overlapping knowledge together.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#MetaReport -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#MetaReport">
+        <rdfs:label>Meta-Report</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>Data about a certain report.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Prefiltering -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Prefiltering">
+        <rdfs:label>Prefiltering</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Preparation for filtering in the case the data set is too big to be filtered in one single step.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Processor -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Processor">
+        <rdfs:label>Processor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>A person or software agent who changes data in the system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Producer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Producer">
+        <rdfs:label>Producer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>A person or software agent who produces new data and provides them to the system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Publishing -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Publishing">
+        <rdfs:label>Publishing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Publishing of data on the Web in a structured format.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Querying -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Querying">
+        <rdfs:label>Querying</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Sending queries to a database and retrieving results based on the query criteria.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Report -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Report">
+        <rdfs:label>Report</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A dataset actually included into the database.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Revision -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Revision">
+        <rdfs:label>Revision</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Improvement of quality of data through a user.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Updating -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Updating">
+        <rdfs:label>Updating</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+        <rdfs:comment>Adding new information or modifying existing data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#WebResource -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#WebResource">
+        <rdfs:label>Web Resource</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A general resource that can be identified by a URL and is located on the Web.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/sdo#Wiki -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/sdo#Wiki">
+        <rdfs:label>Wiki</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A wiki page providing data which can be used as input.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
