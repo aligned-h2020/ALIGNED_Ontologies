@@ -28,7 +28,7 @@ This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/p
         <rdfs:comment xml:lang="scss.tcd.ie)">This ontology provides a description of the data lifecycle for enterprise information processing.</rdfs:comment>
         <dc:publisher xml:lang="scss.tcd.ie)">Wolters Kluwer</dc:publisher>
         <owl:imports rdf:resource="http://aligned-project.eu/ontologies/dlo"/>
-        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/jdo.svg"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/jdo.png"/>
     </owl:Ontology>
     
 
