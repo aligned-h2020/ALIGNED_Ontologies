@@ -16,7 +16,7 @@
 	dc:description "This vocabulary is used to describe dacura error messages." ;
 	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
 	dc:title "Dacura error vocabulary." ;
-    dc:description <https://www.scss.tcd.ie/~bozicb/images/dacura-errors.svg> ;
+    dc:description <https://www.scss.tcd.ie/~bozicb/images/dacura-errors.png> ;
 	rdfs:comment "This vocabulary is used to describe dacura error messages." ;
 	rdfs:label "Dacura error vocabulary." ;
 	owl:versionInfo "0.1.02" .
