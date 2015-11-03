@@ -1,0 +1,217 @@
+@prefix de:     <http://dacura.cs.tcd.ie/data/dacura-errors#> .
+@prefix rdfs:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+
+# Ontology metadata
+
+<http://dacura.cs.tcd.ie/data/dacura-errors#>
+	a owl:Ontology ;
+	dc:contributor "Bojan Božić" ,
+		       "Gavin Mendel-Gleason" ,
+               "Rob Brennan" ;		       
+	dc:creator "Bojan Božić" ;
+	dc:date "2015-11-03" ;
+	dc:description "This vocabulary is used to describe dacura error messages." ;
+	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
+	dc:title "Dacura error vocabulary." ;
+    dc:description "https://www.scss.tcd.ie/~bozicb/images/dacura-errors.svg" ;
+	rdfs:comment "This vocabulary is used to describe dacura error messages." ;
+	rdfs:label "Dacura error vocabulary." ;
+	owl:versionInfo "0.1.02" .
+    
+# Dacura Errors Vocabulary
+
+# Properties
+
+de:message a owl:DatatypeProperty ;
+    rdfs:label "Message" ;
+    rdfs:comment "This is a general property which can be used to attach the original error message provided by a reasoner." ;
+    rdfs:domain de:DacuraMessage ;
+    rdfs:range xsd:string .
+    
+de:info a owl:DatatypeProperty ;
+    rdfs:label "Info" ;
+    rdfs:comment "This is a generic property which allows publishing additional context to a message." ;
+    rdfs:domain de:DacuraMessage ;
+    rdfs:range xsd:string .
+    
+de:class a owl:ObjectProperty ;
+    rdfs:domain de:ClassError , de:ClassWarning ;
+    rdfs:range de:Class .
+
+de:property a owl:ObjectProperty ;
+    rdfs:domain de:PropertyError , de:PropertyWarning ;
+    rdfs:range de:Property .
+    
+de:element a owl:ObjectProperty ;
+    rdfs:domain de:NotAnElementError ;
+    rdfs:range de:Element .
+
+# Classes
+
+de:Class a owl:Class .
+de:Property a owl:Class .
+de:Element a owl:Class .
+
+de:DacuraMessage a owl:Class ;
+    de:message xsd:string .
+
+de:DacuraError a owl:Class ;
+    rdfs:subClassOf de:DacuraMessage .
+    
+de:DacuraWarning a owl:Class ;
+    rdfs:subClassOf de:DacuraMessage .
+    
+de:SchemaError a owl:Class ;
+    rdfs:subClassOf de:DacuraError .
+    
+de:InstanceError a owl:Class ;
+    rdfs:subClassOf de:DacuraError .
+    
+de:SchemaWarning a owl:Class ;
+    rdfs:subClassOf de:DacuraWarning .
+    
+de:InstanceWarning a owl:Class ;
+    rdfs:subClassOf de:DacuraWarning .
+    
+de:ClassError a owl:Class ;
+    rdfs:subClassOf de:SchemaError .
+    
+de:PropertyError a owl:Class ;
+    rdfs:subClassOf de:SchemaError .
+    
+de:NoImmediateClassError a owl:Class ;
+    rdfs:subClassOf de:ClassError .
+    
+de:OrphanClassError a owl:Class ;
+    rdfs:subClassOf de:ClassError .
+    
+de:ClassCycleError a owl:Class ;
+    rdfs:subClassOf de:ClassError .
+
+de:NotDomainClassError a owl:Class ;
+    rdfs:subClassOf de:NoImmediateClassError .
+    
+de:NotSuperClassOfClassError a owl:Class ;
+    rdfs:subClassOf de:NoImmediateClassError .
+    
+de:NotSubClassOfClassError a owl:Class ;
+    rdfs:subClassOf de:NoImmediateClassError ;
+    rdfs:subClassOf de:OrphanClassError .
+    
+de:NotIntersectionOfClassError a owl:Class ;
+    rdfs:subClassOf de:NoImmediateClassError ;
+    rdfs:subClassOf de:OrphanClassError .
+
+de:NotUnionOfClassError a owl:Class ;
+    rdfs:subClassOf de:NoImmediateClassError ;
+    rdfs:subClassOf de:OrphanClassError .
+    
+de:PropertyDomainError a owl:Class ;
+    rdfs:subClassOf de:PropertyError .
+    
+de:InvalidDomainError a owl:Class ;
+    rdfs:subClassOf de:PropertyDomainError .
+    
+de:DomainNotSubsumedError a owl:Class ;
+    rdfs:subClassOf de:PropertyDomainError .
+    
+de:PropertyRangeError a owl:Class ;
+    rdfs:subClassOf de:PropertyError .
+    
+de:InvalidRangeError a owl:Class ;
+    rdfs:subClassOf de:PropertyRangeError .
+    
+de:RangeNotSubsumedError a owl:Class ;
+    rdfs:subClassOf de:PropertyRangeError .
+    
+de:PropertyTypeOverloadError a owl:Class ;
+    rdfs:subClassOf de:PropertyError .
+    
+de:PropertyCycleError a owl:Class ;
+    rdfs:subClassOf de:PropertyError .
+    
+de:OrphanPropertyError a owl:Class ;
+    rdfs:subClassOf de:PropertyError .
+    
+de:NotSubpropertyOfPropertyError a owl:Class ;
+    rdfs:subClassOf de:OrphanPropertyError .
+    
+de:InstancePropertyError a owl:Class ;
+    rdfs:subClassOf de:InstanceError .
+    
+de:InvalidEdgeError a owl:Class ;
+    rdfs:subClassOf de:InstancePropertyError .
+    
+de:NotFunctionalPropertyError a owl:Class ;
+    rdfs:subClassOf de:InstancePropertyError .
+    
+de:NotInverseFunctionalPropertyError a owl:Class ;
+    rdfs:subClassOf de:InstancePropertyError .
+    
+de:LocalOrphanPropertyError a owl:Class ;
+    rdfs:subClassOf de:InstancePropertyError .
+    
+de:NotAnElementError a owl:Class ;
+    rdfs:subClassOf de:InstanceError ;
+    de:class de:Class ;
+    de:element de:Element .
+    
+de:ObjectInvalidAtClassError a owl:Class ;
+    rdfs:subClassOf de:NotAnElementError .
+    
+de:NotRestrictionElementError a owl:Class ;
+    rdfs:subClassOf de:NotAnElementError .
+    
+de:EdgeOrphanInstanceError a owl:Class ;
+    rdfs:subClassOf de:NotAnElementError .
+    
+de:DataInvalidAtDatatypeError a owl:Class ;
+    rdfs:subClassOf de:NotAnElementError .
+    
+de:NotBaseTypeElementError a owl:Class ;
+    rdfs:subClassOf de:DataInvalidAtDatatypeError .
+    
+de:ClassWarning a owl:Class ;
+    rdfs:subClassOf de:SchemaWarning .
+    
+de:NotUniqueClassLabelWarning a owl:Class ;
+    rdfs:subClassOf de:ClassWarning .
+    
+de:NotUniqueClassNameWarning a owl:Class ;
+    rdfs:subClassOf de:ClassWarning .
+    
+de:PropertyWarning a owl:Class ;
+    rdfs:subClassOf de:SchemaWarning .
+    
+de:PropertyDomainWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyWarning .
+
+de:NoImmediateDomainWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyDomainWarning .
+    
+de:PropertyAnnotationOverloadWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyWarning .
+    
+de:PropertyRangeWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyWarning .
+
+de:NoImmediateRangeWarning a owl:Class;
+    rdfs:subClassOf de:PropertyRangeWarning .
+    
+de:SchemaBlankNodeWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyWarning .
+    
+de:NotUniquePropertyNameWarning a owl:Class ;
+    rdfs:subClassOf de:PropertyWarning .
+    
+de:NoPropertyDomainWarning a owl:Class ;
+    rdfs:subClassOf de:InstanceWarning .
+    
+de:NoPropertyRangeWarning a owl:Class ;
+    rdfs:subClassOf de:InstanceWarning .
+    
+de:InstanceBlankNodeWarning a owl:Class ;
+    rdfs:subClassOf de:InstanceWarning .
