@@ -10,12 +10,13 @@
 	a owl:Ontology ;
 	dc:contributor "Bojan Božić" ,
 		       "Gavin Mendel-Gleason" ,
-               "Rob Brennan" ;		       
+               "Rob Brennan" ,
+               "Kevin C. Feeney" ;		       
 	dc:creator "Bojan Božić" ;
 	dc:date "2015-11-03" ;
 	dc:description "This vocabulary is used to describe dacura error messages." ;
 	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
-	dc:title "Dacura error vocabulary." ;
+	dc:title "Dacura Error Vocabulary" ;
     dc:description <https://www.scss.tcd.ie/~bozicb/images/dacura-errors.png> ;
 	rdfs:comment "This vocabulary is used to describe dacura error messages." ;
 	rdfs:label "Dacura error vocabulary." ;
@@ -38,180 +39,298 @@ de:info a owl:DatatypeProperty ;
     rdfs:range xsd:string .
     
 de:class a owl:ObjectProperty ;
+    rdfs:label "Class" ;
+    rdfs:comment "A property which assignes the class that produced an error or warning to the respective error or warning class." ;
     rdfs:domain de:ClassError , de:ClassWarning ;
     rdfs:range de:Class .
 
 de:property a owl:ObjectProperty ;
+    rdfs:label "Property" ;
+    rdfs:comment "A property which assignes the property that produced an error or warning to the respective error or warning class." ;
     rdfs:domain de:PropertyError , de:PropertyWarning ;
     rdfs:range de:Property .
     
 de:element a owl:ObjectProperty ;
+    rdfs:label "Element" ;
+    rdfs:comment "A property which assignes the element that was involved in an error or warning to the respective element error class." ;
     rdfs:domain de:NotAnElementError ;
     rdfs:range de:Element .
 
 # Classes
 
-de:Class a owl:Class .
-de:Property a owl:Class .
-de:Element a owl:Class .
+de:Class a owl:Class ;
+    rdfs:label "Class" ;
+    rdfs:comment "" .
+
+de:Property a owl:Class ;
+    rdfs:label "Property" ;
+    rdfs:comment "" .
+
+de:Element a owl:Class ;
+    rdfs:label "Element" ;
+    rdfs:comment "" .
 
 de:DacuraMessage a owl:Class ;
+    rdfs:label "Dacura Message" ;
+    rdfs:comment "" ;
     de:message xsd:string .
 
 de:DacuraError a owl:Class ;
+    rdfs:label "Dacura Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraMessage .
     
 de:DacuraWarning a owl:Class ;
+    rdfs:label "Dacura Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraMessage .
     
 de:SchemaError a owl:Class ;
+    rdfs:label "Schema Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraError .
     
 de:InstanceError a owl:Class ;
+    rdfs:label "Instance Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraError .
     
 de:SchemaWarning a owl:Class ;
+    rdfs:label "Schema Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraWarning .
     
 de:InstanceWarning a owl:Class ;
+    rdfs:label "Instance Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DacuraWarning .
     
 de:ClassError a owl:Class ;
+    rdfs:label "Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:SchemaError .
     
 de:PropertyError a owl:Class ;
+    rdfs:label "Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:SchemaError .
     
 de:NoImmediateClassError a owl:Class ;
+    rdfs:label "No Immediate Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:ClassError .
     
 de:OrphanClassError a owl:Class ;
+    rdfs:label "Orphan Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:ClassError .
     
 de:ClassCycleError a owl:Class ;
+    rdfs:label "Class Cycle Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:ClassError .
 
 de:NotDomainClassError a owl:Class ;
+    rdfs:label "Not Domain Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NoImmediateClassError .
     
 de:NotSuperClassOfClassError a owl:Class ;
+    rdfs:label "Not Super Class of Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NoImmediateClassError .
     
 de:NotSubClassOfClassError a owl:Class ;
+    rdfs:label "Not Sub Class of Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NoImmediateClassError ;
     rdfs:subClassOf de:OrphanClassError .
     
 de:NotIntersectionOfClassError a owl:Class ;
+    rdfs:label "Not Intersection of Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NoImmediateClassError ;
     rdfs:subClassOf de:OrphanClassError .
 
 de:NotUnionOfClassError a owl:Class ;
+    rdfs:label "Not Union of Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NoImmediateClassError ;
     rdfs:subClassOf de:OrphanClassError .
     
 de:PropertyDomainError a owl:Class ;
+    rdfs:label "Property Domain Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyError .
     
 de:InvalidDomainError a owl:Class ;
+    rdfs:label "Invalid Domain Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyDomainError .
     
 de:DomainNotSubsumedError a owl:Class ;
+    rdfs:label "Domain Not Subsumed Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyDomainError .
     
 de:PropertyRangeError a owl:Class ;
+    rdfs:label "Property Range Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyError .
     
 de:InvalidRangeError a owl:Class ;
+    rdfs:label "Invalid Range Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyRangeError .
     
 de:RangeNotSubsumedError a owl:Class ;
+    rdfs:label "Range Not Subsumed Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyRangeError .
     
 de:PropertyTypeOverloadError a owl:Class ;
+    rdfs:label "Property Type Overload Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyError .
     
 de:PropertyCycleError a owl:Class ;
+    rdfs:label "Property Cycle Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyError .
     
 de:OrphanPropertyError a owl:Class ;
+    rdfs:label "Orphan Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyError .
     
 de:NotSubpropertyOfPropertyError a owl:Class ;
+    rdfs:label "Not Subproperty of Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:OrphanPropertyError .
     
 de:InstancePropertyError a owl:Class ;
+    rdfs:label "Instance Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstanceError .
     
 de:InvalidEdgeError a owl:Class ;
+    rdfs:label "Invalid Edge Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstancePropertyError .
     
 de:NotFunctionalPropertyError a owl:Class ;
+    rdfs:label "Non Functional Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstancePropertyError .
     
 de:NotInverseFunctionalPropertyError a owl:Class ;
+    rdfs:label "Not Inverse Functional Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstancePropertyError .
     
 de:LocalOrphanPropertyError a owl:Class ;
+    rdfs:label "Local Orphan Property Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstancePropertyError .
     
 de:NotAnElementError a owl:Class ;
+    rdfs:label "Not an Element Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstanceError ;
     de:class de:Class ;
     de:element de:Element .
     
 de:ObjectInvalidAtClassError a owl:Class ;
+    rdfs:label "Object Invalid at Class Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NotAnElementError .
     
 de:NotRestrictionElementError a owl:Class ;
+    rdfs:label "Not Restriction Element Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NotAnElementError .
     
 de:EdgeOrphanInstanceError a owl:Class ;
+    rdfs:label "Edge Orphan Instance Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NotAnElementError .
     
 de:DataInvalidAtDatatypeError a owl:Class ;
+    rdfs:label "Data Invalid at Datatype Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:NotAnElementError .
     
 de:NotBaseTypeElementError a owl:Class ;
+    rdfs:label "Not Base Type Element Error" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:DataInvalidAtDatatypeError .
     
 de:ClassWarning a owl:Class ;
+    rdfs:label "Class Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:SchemaWarning .
     
 de:NotUniqueClassLabelWarning a owl:Class ;
+    rdfs:label "Not Unique Class Label Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:ClassWarning .
     
 de:NotUniqueClassNameWarning a owl:Class ;
+    rdfs:label "Not Unique Class Name Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:ClassWarning .
     
 de:PropertyWarning a owl:Class ;
+    rdfs:label "Property Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:SchemaWarning .
     
 de:PropertyDomainWarning a owl:Class ;
+    rdfs:label "Property Domain Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyWarning .
 
 de:NoImmediateDomainWarning a owl:Class ;
+    rdfs:label "No Immediate Domain Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyDomainWarning .
     
 de:PropertyAnnotationOverloadWarning a owl:Class ;
+    rdfs:label "Property Annotation Overload Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:PropertyRangeWarning a owl:Class ;
+    rdfs:label "Property Range Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyWarning .
 
 de:NoImmediateRangeWarning a owl:Class;
+    rdfs:label "No Immediate Range Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyRangeWarning .
     
 de:SchemaBlankNodeWarning a owl:Class ;
+    rdfs:label "Schema Blank Node Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:NotUniquePropertyNameWarning a owl:Class ;
+    rdfs:label "Not Unique Property Name Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:NoPropertyDomainWarning a owl:Class ;
+    rdfs:label "No Property Domain Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstanceWarning .
     
 de:NoPropertyRangeWarning a owl:Class ;
+    rdfs:label "No Property Range Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstanceWarning .
     
 de:InstanceBlankNodeWarning a owl:Class ;
+    rdfs:label "Instance Blank Node Warning" ;
+    rdfs:comment "" ;
     rdfs:subClassOf de:InstanceWarning .
