@@ -117,17 +117,17 @@ de:PropertyError a owl:Class ;
     
 de:NoImmediateClassError a owl:Class ;
     rdfs:label "No Immediate Class Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "An undefined class is used as domain for a property or the class is defined but the superclass is not or the class is not a subclass of a defined class or the class is an intersection of a defined class but not a defined class or the class is not an intersection of a defined class or the class is not a union of a defined class or the class is a union but not a defined class." ;
     rdfs:subClassOf de:ClassError .
     
 de:OrphanClassError a owl:Class ;
     rdfs:label "Orphan Class Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The class is not a subclass, intersection, or union of a valid class." ;
     rdfs:subClassOf de:ClassError .
     
 de:ClassCycleError a owl:Class ;
     rdfs:label "Class Cycle Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The class has a class cycle." ;
     rdfs:subClassOf de:ClassError .
 
 de:NotDomainClassError a owl:Class ;
@@ -165,12 +165,12 @@ de:PropertyDomainError a owl:Class ;
     
 de:InvalidDomainError a owl:Class ;
     rdfs:label "Invalid Domain Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property has an invalid domain." ;
     rdfs:subClassOf de:PropertyDomainError .
     
 de:DomainNotSubsumedError a owl:Class ;
     rdfs:label "Domain Not Subsumed Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "Invalid domain on a property has been caused by failure of domain subsumption." ;
     rdfs:subClassOf de:PropertyDomainError .
     
 de:PropertyRangeError a owl:Class ;
@@ -180,27 +180,27 @@ de:PropertyRangeError a owl:Class ;
     
 de:InvalidRangeError a owl:Class ;
     rdfs:label "Invalid Range Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property has an invalid or unimplemented range." ;
     rdfs:subClassOf de:PropertyRangeError .
     
 de:RangeNotSubsumedError a owl:Class ;
     rdfs:label "Range Not Subsumed Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "Invalid range on a property has been caused by failure of range subsumption." ;
     rdfs:subClassOf de:PropertyRangeError .
     
 de:PropertyTypeOverloadError a owl:Class ;
     rdfs:label "Property Type Overload Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property is an object property and a datatype property." ;
     rdfs:subClassOf de:PropertyError .
     
 de:PropertyCycleError a owl:Class ;
     rdfs:label "Property Cycle Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property class has a cycle." ;
     rdfs:subClassOf de:PropertyError .
     
 de:OrphanPropertyError a owl:Class ;
     rdfs:label "Orphan Property Error" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property is not a sub-property of a valid property." ;
     rdfs:subClassOf de:PropertyError .
     
 de:NotSubpropertyOfPropertyError a owl:Class ;
@@ -272,12 +272,12 @@ de:ClassWarning a owl:Class ;
     
 de:NotUniqueClassLabelWarning a owl:Class ;
     rdfs:label "Not Unique Class Label Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "Class does not have exactly one label." ;
     rdfs:subClassOf de:ClassWarning .
     
 de:NotUniqueClassNameWarning a owl:Class ;
     rdfs:label "Not Unique Class Name Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "The class or restriction is not unique (i.e. there is another existing class with the same identifier)." ;
     rdfs:subClassOf de:ClassWarning .
     
 de:PropertyWarning a owl:Class ;
@@ -292,12 +292,12 @@ de:PropertyDomainWarning a owl:Class ;
 
 de:NoImmediateDomainWarning a owl:Class ;
     rdfs:label "No Immediate Domain Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property has no specified domain." ;
     rdfs:subClassOf de:PropertyDomainWarning .
     
 de:PropertyAnnotationOverloadWarning a owl:Class ;
     rdfs:label "Property Annotation Overload Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property is defined as a property and as an annotation property." ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:PropertyRangeWarning a owl:Class ;
@@ -307,17 +307,17 @@ de:PropertyRangeWarning a owl:Class ;
 
 de:NoImmediateRangeWarning a owl:Class;
     rdfs:label "No Immediate Range Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "The property has no specified range." ;
     rdfs:subClassOf de:PropertyRangeWarning .
     
 de:SchemaBlankNodeWarning a owl:Class ;
     rdfs:label "Schema Blank Node Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "Subject, predicate, or object is a blank node." ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:NotUniquePropertyNameWarning a owl:Class ;
     rdfs:label "Not Unique Property Name Warning" ;
-    rdfs:comment "" ;
+    rdfs:comment "Another property exists with the same identifier." ;
     rdfs:subClassOf de:PropertyWarning .
     
 de:NoPropertyDomainWarning a owl:Class ;
