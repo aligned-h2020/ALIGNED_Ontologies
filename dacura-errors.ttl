@@ -107,7 +107,7 @@ de:InstanceWarning a owl:Class ;
     
 de:ClassError a owl:Class ;
     rdfs:label "Class Error" ;
-    rdfs:comment "An error which is caused by an inconsistent or invalid class definition."" ;
+    rdfs:comment "An error which is caused by an inconsistent or invalid class definition." ;
     rdfs:subClassOf de:SchemaError .
     
 de:PropertyError a owl:Class ;
