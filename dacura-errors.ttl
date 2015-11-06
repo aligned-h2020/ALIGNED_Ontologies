@@ -1,5 +1,5 @@
 @prefix de:     <http://dacura.cs.tcd.ie/data/dacura-errors#> .
-@prefix rdfs:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
@@ -13,7 +13,7 @@
                "Rob Brennan" ,
                "Kevin C. Feeney" ;		       
 	dc:creator "Bojan Božić" ;
-	dc:date "2015-11-03" ;
+	dc:date "2015-11-06" ;
 	dc:description "This vocabulary is used to describe dacura error messages." ;
 	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
 	dc:title "Dacura Error Vocabulary" ;
@@ -236,9 +236,7 @@ de:LocalOrphanPropertyError a owl:Class ;
 de:NotAnElementError a owl:Class ;
     rdfs:label "Not an Element Error" ;
     rdfs:comment "" ;
-    rdfs:subClassOf de:InstanceError ;
-    de:class de:Class ;
-    de:element de:Element .
+    rdfs:subClassOf de:InstanceError .
     
 de:ObjectInvalidAtClassError a owl:Class ;
     rdfs:label "Object Invalid at Class Error" ;
