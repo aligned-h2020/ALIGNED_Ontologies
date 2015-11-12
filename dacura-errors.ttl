@@ -59,7 +59,7 @@ de:cardinality a owl:DatatypeProperty ;
 de:path a owl:DatatypeProperty ;
     rdfs:label "Path" ;
     rdfs:comment "Defines the path of the cycle violation." ;
-    rdfs:domain PropertyCycleViolation , ClassCycleViolation ;
+    rdfs:domain de:PropertyCycleViolation , de:ClassCycleViolation ;
     rdfs:range xsd:string .
 
 de:class a owl:ObjectProperty ;
