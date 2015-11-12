@@ -143,19 +143,19 @@ de:parentProperty a owl:ObjectProperty ;
 de:subject a owl:ObjectProperty ;
     rdfs:label "Subject" ;
     rdfs:comment "The subject of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , EdgeOrphanInstanceViolation , InstancePropertyViolation , InstanceBlankNodeViolation ;
+    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
     rdfs:range rdfs:Resource .
     
 de:predicate a owl:ObjectProperty ;
     rdfs:label "Predicate" ;
     rdfs:comment "The predicate of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , EdgeOrphanInstanceViolation , InstancePropertyViolation , InstanceBlankNodeViolation ;
+    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
     rdfs:range rdfs:Resource .
     
 de:object a owl:ObjectProperty ;
     rdfs:label "Object" ;
     rdfs:comment "The object of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , EdgeOrphanInstanceViolation , InstancePropertyViolation , InstanceBlankNodeViolation ;
+    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
     rdfs:range rdfs:Resource .
 
 # Classes
