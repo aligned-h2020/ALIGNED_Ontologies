@@ -1,8 +1,8 @@
-@prefix rvo:     <http://dacura.cs.tcd.ie/data/rvo#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix rvo: <http://dacura.cs.tcd.ie/data/rvo#> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:  <http://purl.org/dc/elements/1.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Ontology metadata
@@ -27,380 +27,380 @@
 
 # Properties
 
-de:message a owl:DatatypeProperty ;
+rvo:message a owl:DatatypeProperty ;
     rdfs:label "Message" ;
     rdfs:comment "This is a general property which can be used to attach the original error message provided by a reasoner." ;
-    rdfs:domain de:Violation ;
+    rdfs:domain rvo:Violation ;
     rdfs:range xsd:string .
     
-de:info a owl:DatatypeProperty ;
+rvo:info a owl:DatatypeProperty ;
     rdfs:label "Info" ;
     rdfs:comment "This is a generic property which allows publishing additional context to a message." ;
-    rdfs:domain de:Violation ;
+    rdfs:domain rvo:Violation ;
     rdfs:range xsd:string .
     
-de:bestPractice a owl:DatatypeProperty ;
+rvo:bestPractice a owl:DatatypeProperty ;
     rdfs:label "Best Practice" ;
     rdfs:comment "This is a generic property which indicates whether a violation is considered only best practice or more serious." ;
-    rdfs:domain de:Violation ;
+    rdfs:domain rvo:Violation ;
     rdfs:range xsd:boolean .
     
-de:definedAtLine a owl:DatatypeProperty ;
+rvo:definedAtLine a owl:DatatypeProperty ;
     rdfs:label "Defined at Line" ;
     rdfs:comment "This is a generic property which indicates where the class, property, or element that caused the violation has occured in the ontology." ;
-    rdfs:domain de:Class , de:Element , de:Property ;
+    rdfs:domain rvo:Class , rvo:Element , rvo:Property ;
     rdfs:range xsd:nonNegativeInteger .
     
-de:cardinality a owl:DatatypeProperty ;
+rvo:cardinality a owl:DatatypeProperty ;
     rdfs:label "Cardinality" ;
     rdfs:comment "Defines the cardinality of a not an element violation." ;
-    rdfs:domain de:NotAnElementViolation ;
+    rdfs:domain rvo:NotAnElementViolation ;
     rdfs:range xsd:nonNegativeInteger .
     
-de:path a owl:DatatypeProperty ;
+rvo:path a owl:DatatypeProperty ;
     rdfs:label "Path" ;
     rdfs:comment "Defines the path of the cycle violation." ;
-    rdfs:domain de:PropertyCycleViolation , de:ClassCycleViolation ;
+    rdfs:domain rvo:PropertyCycleViolation , rvo:ClassCycleViolation ;
     rdfs:range xsd:string .
 
-de:class a owl:ObjectProperty ;
+rvo:class a owl:ObjectProperty ;
     rdfs:label "Class" ;
     rdfs:comment "A property which assignes the class that produced a violation to the respective violation class." ;
-    rdfs:domain de:Violation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:Violation ;
+    rdfs:range rvo:Class .
 
-de:property a owl:ObjectProperty ;
+rvo:property a owl:ObjectProperty ;
     rdfs:label "Property" ;
     rdfs:comment "A property which assignes the property that produced a violation to the respective violation class." ;
-    rdfs:domain de:Violation ;
-    rdfs:range de:Property .
+    rdfs:domain rvo:Violation ;
+    rdfs:range rvo:Property .
     
-de:element a owl:ObjectProperty ;
+rvo:element a owl:ObjectProperty ;
     rdfs:label "Element" ;
     rdfs:comment "A property which assignes the element that was involved in a violation to the respective element violation class." ;
-    rdfs:domain de:Violation ;
-    rdfs:range de:Element .
+    rdfs:domain rvo:Violation ;
+    rdfs:range rvo:Element .
     
-de:constraintType a owl:ObjectProperty ;
+rvo:constraintType a owl:ObjectProperty ;
     rdfs:label "Constraint Type" ;
     rdfs:comment "Type of constraint on a violation - could be openworld or closedworld." ;
-    rdfs:domain de:Violation ;
-    rdfs:range de:ConstraintType .
+    rdfs:domain rvo:Violation ;
+    rdfs:range rvo:ConstraintType .
     
-de:parent a owl:ObjectProperty ;
+rvo:parent a owl:ObjectProperty ;
     rdfs:label "Parent" ;
     rdfs:comment "Involved parent class or property." ;
-    rdfs:domain de:PropertyViolation , de:ClassViolation ;
-    rdfs:range de:Property , de:Class .
+    rdfs:domain rvo:PropertyViolation , rvo:ClassViolation ;
+    rdfs:range rvo:Property , rvo:Class .
     
-de:child a owl:ObjectProperty ;
+rvo:child a owl:ObjectProperty ;
     rdfs:label "Child" ;
     rdfs:comment "Involved child class or property." ;
-    rdfs:domain de:PropertyViolation , de:ClassViolation ;
-    rdfs:range de:Property , de:Class .
+    rdfs:domain rvo:PropertyViolation , rvo:ClassViolation ;
+    rdfs:range rvo:Property , rvo:Class .
     
-de:value a owl:ObjectProperty ;
+rvo:value a owl:ObjectProperty ;
     rdfs:label "Value" ;
     rdfs:comment "The value of an element involved in the not an element violation." ;
-    rdfs:domain de:NotAnElementViolation ;
-    rdfs:range de:Element .
+    rdfs:domain rvo:NotAnElementViolation ;
+    rdfs:range rvo:Element .
 
-de:qualifiedOn a owl:ObjectProperty ;
+rvo:qualifiedOn a owl:ObjectProperty ;
     rdfs:label "Qualified on" ;
     rdfs:comment "The relation between a not an elment violation an the class the element was assigned to." ;
-    rdfs:domain de:NotAnElementViolation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:NotAnElementViolation ;
+    rdfs:range rvo:Class .
 
-de:domain a owl:ObjectProperty ;
+rvo:domain a owl:ObjectProperty ;
     rdfs:label "Domain" ;
     rdfs:comment "The intended domain class of a property domain violation." ;
-    rdfs:domain de:PropertyDomainViolation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:PropertyDomainViolation ;
+    rdfs:range rvo:Class .
     
-de:range a owl:ObjectProperty ;
+rvo:range a owl:ObjectProperty ;
     rdfs:label "Range" ;
     rdfs:comment "The intended range class of a property domain violation." ;
-    rdfs:domain de:PropertyDomainViolation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:PropertyDomainViolation ;
+    rdfs:range rvo:Class .
 
-de:parentDomain a owl:ObjectProperty ;
+rvo:parentDomain a owl:ObjectProperty ;
     rdfs:label "Parent Domain" ;
     rdfs:comment "Parent domain of a domain not subsumed violation." ;
-    rdfs:domain de:DomainNotSubsumedViolation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:DomainNotSubsumedViolation ;
+    rdfs:range rvo:Class .
     
-de:parentRange a owl:ObjectProperty ;
+rvo:parentRange a owl:ObjectProperty ;
     rdfs:label "Parent Range" ;
     rdfs:comment "Parent range of a range not subsumed violation." ;
-    rdfs:domain de:RangeNotSubsumedViolation ;
-    rdfs:range de:Class .
+    rdfs:domain rvo:RangeNotSubsumedViolation ;
+    rdfs:range rvo:Class .
 
-de:parentProperty a owl:ObjectProperty ;
+rvo:parentProperty a owl:ObjectProperty ;
     rdfs:label "Parent Propery" ;
     rdfs:comment "Marks the parent property for range and domain not subsumed violations." ;
-    rdfs:domain de:DomainNotSubsumedViolation , de:RangeNotSubsumedViolation ;
-    rdfs:range de:Property .
+    rdfs:domain rvo:DomainNotSubsumedViolation , rvo:RangeNotSubsumedViolation ;
+    rdfs:range rvo:Property .
     
-de:subject a owl:ObjectProperty ;
+rvo:subject a owl:ObjectProperty ;
     rdfs:label "Subject" ;
     rdfs:comment "The subject of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
+    rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
     rdfs:range rdf:Resource .
     
-de:predicate a owl:ObjectProperty ;
+rvo:predicate a owl:ObjectProperty ;
     rdfs:label "Predicate" ;
     rdfs:comment "The predicate of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
+    rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
     rdfs:range rdf:Resource .
     
-de:object a owl:ObjectProperty ;
+rvo:object a owl:ObjectProperty ;
     rdfs:label "Object" ;
     rdfs:comment "The object of a triple involved in a violation." ;
-    rdfs:domain de:SchemaBlankNodeViolation , de:EdgeOrphanInstanceViolation , de:InstancePropertyViolation , de:InstanceBlankNodeViolation ;
+    rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
     rdfs:range rdf:Resource .
 
 # Classes
 
 # General classes
 
-de:Class a owl:Class ;
+rvo:Class a owl:Class ;
     rdfs:label "Class" ;
     rdfs:comment "This is the class which produced a violation." .
 
-de:Property a owl:Class ;
+rvo:Property a owl:Class ;
     rdfs:label "Property" ;
     rdfs:comment "This is the property which produced a violation." .
 
-de:Element a owl:Class ;
+rvo:Element a owl:Class ;
     rdfs:label "Element" ;
     rdfs:comment "This is the element which was involved in a violation." .
     
-de:ConstraintType a owl:Class ;
-    owl:oneOf (de:openworld de:closedworld) ;
+rvo:ConstraintType a owl:Class ;
+    owl:oneOf (rvo:openworld rvo:closedworld) ;
     rdfs:label "Constraint Type" ;
     rdfs:comment "Specifies whether the constraint exists in a closed or open world." .
     
 # Violations
 
-de:Violation a owl:Class ;
+rvo:Violation a owl:Class ;
     rdfs:label "Violation" ;
     rdfs:comment "Generic class for all kinds of violations within Dacura." ;
-    de:message xsd:string .
+    rvo:message xsd:string .
     
-de:SchemaViolation a owl:Class ;
+rvo:SchemaViolation a owl:Class ;
     rdfs:label "Schema Violation" ;
     rdfs:comment "A violation which is caused by inconsistancies on the schema level." ;
-    rdfs:subClassOf de:Violation .
+    rdfs:subClassOf rvo:Violation .
     
-de:InstanceViolation a owl:Class ;
+rvo:InstanceViolation a owl:Class ;
     rdfs:label "Instance Violation" ;
     rdfs:comment "A violation which is caused by inconsistancies on the instance level." ;
-    rdfs:subClassOf de:Violation .
+    rdfs:subClassOf rvo:Violation .
     
-de:ClassViolation a owl:Class ;
+rvo:ClassViolation a owl:Class ;
     rdfs:label "Class Violation" ;
     rdfs:comment "A violation which is caused by an inconsistent or invalid class definition." ;
-    rdfs:subClassOf de:SchemaViolation .
+    rdfs:subClassOf rvo:SchemaViolation .
     
-de:PropertyViolation a owl:Class ;
+rvo:PropertyViolation a owl:Class ;
     rdfs:label "Property Violation" ;
     rdfs:comment "A violation which is caused by an inconsistent or invalid property definition." ;
-    rdfs:subClassOf de:SchemaViolation .
+    rdfs:subClassOf rvo:SchemaViolation .
     
-de:NoImmediateClassViolation a owl:Class ;
+rvo:NoImmediateClassViolation a owl:Class ;
     rdfs:label "No Immediate Class Violation" ;
     rdfs:comment "An undefined class is used as domain for a property or the class is defined but the superclass is not or the class is not a subclass of a defined class or the class is an intersection of a defined class but not a defined class or the class is not an intersection of a defined class or the class is not a union of a defined class or the class is a union but not a defined class." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
     
-de:OrphanClassViolation a owl:Class ;
+rvo:OrphanClassViolation a owl:Class ;
     rdfs:label "Orphan Class Violation" ;
     rdfs:comment "The class is not a subclass, intersection, or union of a valid class." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
     
-de:ClassCycleViolation a owl:Class ;
+rvo:ClassCycleViolation a owl:Class ;
     rdfs:label "Class Cycle Violation" ;
     rdfs:comment "The class has a class cycle." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
 
-de:NotDomainClassViolation a owl:Class ;
+rvo:NotDomainClassViolation a owl:Class ;
     rdfs:label "Not Domain Class Violation" ;
     rdfs:comment "The used property domain is not defined." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
     
-de:NotUniqueClassLabelViolation a owl:Class ;
+rvo:NotUniqueClassLabelViolation a owl:Class ;
     rdfs:label "Not Unique Class Label Violation" ;
     rdfs:comment "Class does not have exactly one label." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
     
-de:NotUniqueClassNameViolation a owl:Class ;
+rvo:NotUniqueClassNameViolation a owl:Class ;
     rdfs:label "Not Unique Class Name Violation" ;
     rdfs:comment "The class or restriction is not unique (i.e. there is another existing class with the same identifier)." ;
-    rdfs:subClassOf de:ClassViolation .
+    rdfs:subClassOf rvo:ClassViolation .
     
-de:NotSuperClassOfClassViolation a owl:Class ;
+rvo:NotSuperClassOfClassViolation a owl:Class ;
     rdfs:label "Not Super Class of Class Violation" ;
     rdfs:comment "The class is not a superclass of a defined class." ;
-    rdfs:subClassOf de:NoImmediateClassViolation .
+    rdfs:subClassOf rvo:NoImmediateClassViolation .
     
-de:NotSubClassOfClassViolation a owl:Class ;
+rvo:NotSubClassOfClassViolation a owl:Class ;
     rdfs:label "Not Sub Class of Class Violation" ;
     rdfs:comment "The class is not a subclass of a defined class." ;
-    rdfs:subClassOf de:NoImmediateClassViolation ;
-    rdfs:subClassOf de:OrphanClassViolation .
+    rdfs:subClassOf rvo:NoImmediateClassViolation ;
+    rdfs:subClassOf rvo:OrphanClassViolation .
     
-de:NotIntersectionOfClassViolation a owl:Class ;
+rvo:NotIntersectionOfClassViolation a owl:Class ;
     rdfs:label "Not Intersection of Class Violation" ;
     rdfs:comment "The class is an intersection of a defined class, but not a defined class or the class is not an intersection of a defined class." ;
-    rdfs:subClassOf de:NoImmediateClassViolation ;
-    rdfs:subClassOf de:OrphanClassViolation .
+    rdfs:subClassOf rvo:NoImmediateClassViolation ;
+    rdfs:subClassOf rvo:OrphanClassViolation .
 
-de:NotUnionOfClassViolation a owl:Class ;
+rvo:NotUnionOfClassViolation a owl:Class ;
     rdfs:label "Not Union of Class Violation" ;
     rdfs:comment "The class is not a union of a defined class or is a union of a defined class but not defined itself." ;
-    rdfs:subClassOf de:NoImmediateClassViolation ;
-    rdfs:subClassOf de:OrphanClassViolation .
+    rdfs:subClassOf rvo:NoImmediateClassViolation ;
+    rdfs:subClassOf rvo:OrphanClassViolation .
     
-de:NotUniquePropertyNameViolation a owl:Class ;
+rvo:NotUniquePropertyNameViolation a owl:Class ;
     rdfs:label "Not Unique Property Name Violation" ;
     rdfs:comment "Another property exists with the same identifier." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:SchemaBlankNodeViolation a owl:Class ;
+rvo:SchemaBlankNodeViolation a owl:Class ;
     rdfs:label "Schema Blank Node Violation" ;
     rdfs:comment "Subject, predicate, or object is a blank node." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:PropertyRangeViolation a owl:Class ;
+rvo:PropertyRangeViolation a owl:Class ;
     rdfs:label "Property Range Violation" ;
     rdfs:comment "Property has no well defined range." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:NoExplicitRangeViolation a owl:Class ;
+rvo:NoExplicitRangeViolation a owl:Class ;
     rdfs:label "No Explicit Range Violation" ;
     rdfs:comment "Property has no explicit range." ;
-    rdfs:subClassOf de:PropertyRangeViolation .
+    rdfs:subClassOf rvo:PropertyRangeViolation .
     
-de:InvalidRangeViolation a owl:Class ;
+rvo:InvalidRangeViolation a owl:Class ;
     rdfs:label "Invalid Range Violation" ;
     rdfs:comment "The property has an invalid or unimplemented range." ;
-    rdfs:subClassOf de:PropertyRangeViolation .
+    rdfs:subClassOf rvo:PropertyRangeViolation .
     
-de:RangeNotSubsumedViolation a owl:Class ;
+rvo:RangeNotSubsumedViolation a owl:Class ;
     rdfs:label "Range Not Subsumed Violation" ;
     rdfs:comment "Invalid range on a property has been caused by failure of range subsumption." ;
-    rdfs:subClassOf de:PropertyRangeViolation .
+    rdfs:subClassOf rvo:PropertyRangeViolation .
     
-de:PropertyAnnotationOverloadViolation a owl:Class ;
+rvo:PropertyAnnotationOverloadViolation a owl:Class ;
     rdfs:label "Property Annotation Overload Violation" ;
     rdfs:comment "The property is defined as a property and as an annotation property." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:PropertyDomainViolation a owl:Class ;
+rvo:PropertyDomainViolation a owl:Class ;
     rdfs:label "Property Domain Violation" ;
     rdfs:comment "Property has no well defined domain." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:NoExplicitDomainViolation a owl:Class ;
+rvo:NoExplicitDomainViolation a owl:Class ;
     rdfs:label "No Explicit Domain Violation" ;
     rdfs:comment "Property has no explicit domain." ;
-    rdfs:subClassOf de:PropertyDomainViolation .
+    rdfs:subClassOf rvo:PropertyDomainViolation .
     
-de:InvalidDomainViolation a owl:Class ;
+rvo:InvalidDomainViolation a owl:Class ;
     rdfs:label "Invalid Domain Violation" ;
     rdfs:comment "The property has an invalid domain." ;
-    rdfs:subClassOf de:PropertyDomainViolation .
+    rdfs:subClassOf rvo:PropertyDomainViolation .
     
-de:DomainNotSubsumedViolation a owl:Class ;
+rvo:DomainNotSubsumedViolation a owl:Class ;
     rdfs:label "Domain Not Subsumed Violation" ;
     rdfs:comment "Invalid domain on a property has been caused by failure of domain subsumption." ;
-    rdfs:subClassOf de:PropertyDomainViolation .
+    rdfs:subClassOf rvo:PropertyDomainViolation .
     
-de:OrphanPropertyViolation a owl:Class ;
+rvo:OrphanPropertyViolation a owl:Class ;
     rdfs:label "Orphan Property Violation" ;
     rdfs:comment "The property is not a sub-property of a valid property." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:NotSubpropertyOfPropertyViolation a owl:Class ;
+rvo:NotSubpropertyOfPropertyViolation a owl:Class ;
     rdfs:label "Not Subproperty of Property Violation" ;
     rdfs:comment "The property is not a subproperty of a valid property." ;
-    rdfs:subClassOf de:OrphanPropertyViolation .
+    rdfs:subClassOf rvo:OrphanPropertyViolation .
     
-de:PropertyTypeOverloadViolation a owl:Class ;
+rvo:PropertyTypeOverloadViolation a owl:Class ;
     rdfs:label "Property Type Overload Violation" ;
     rdfs:comment "The property is an object property and a datatype property." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:PropertyCycleViolation a owl:Class ;
+rvo:PropertyCycleViolation a owl:Class ;
     rdfs:label "Property Cycle Violation" ;
     rdfs:comment "The property class has a cycle." ;
-    rdfs:subClassOf de:PropertyViolation .
+    rdfs:subClassOf rvo:PropertyViolation .
     
-de:InstancePropertyViolation a owl:Class ;
+rvo:InstancePropertyViolation a owl:Class ;
     rdfs:label "Instance Property Violation" ;
     rdfs:comment "No property class associated with property." ;
-    rdfs:subClassOf de:InstanceViolation .
+    rdfs:subClassOf rvo:InstanceViolation .
     
-de:NoPropertyDomainViolation a owl:Class ;
+rvo:NoPropertyDomainViolation a owl:Class ;
     rdfs:label "No Property Domain Violation" ;
     rdfs:comment "Property has no well defined domain." ;
-    rdfs:subClassOf de:InstanceViolation .
+    rdfs:subClassOf rvo:InstanceViolation .
     
-de:NoPropertyRangeViolation a owl:Class ;
+rvo:NoPropertyRangeViolation a owl:Class ;
     rdfs:label "No Property Range Violation" ;
     rdfs:comment "Property has no well defined range." ;
-    rdfs:subClassOf de:InstanceViolation .
+    rdfs:subClassOf rvo:InstanceViolation .
     
-de:InvalidEdgeViolation a owl:Class ;
+rvo:InvalidEdgeViolation a owl:Class ;
     rdfs:label "Invalid Edge Violation" ;
     rdfs:comment "Range/domain cardinality of deleted predicates not respected." ;
-    rdfs:subClassOf de:InstancePropertyViolation .
+    rdfs:subClassOf rvo:InstancePropertyViolation .
     
-de:NotFunctionalPropertyViolation a owl:Class ;
+rvo:NotFunctionalPropertyViolation a owl:Class ;
     rdfs:label "Non Functional Property Violation" ;
     rdfs:comment "Functional property is not functional." ;
-    rdfs:subClassOf de:InstancePropertyViolation .
+    rdfs:subClassOf rvo:InstancePropertyViolation .
     
-de:NotInverseFunctionalPropertyViolation a owl:Class ;
+rvo:NotInverseFunctionalPropertyViolation a owl:Class ;
     rdfs:label "Not Inverse Functional Property Violation" ;
     rdfs:comment "Functional property is not functional." ;
-    rdfs:subClassOf de:InstancePropertyViolation .
+    rdfs:subClassOf rvo:InstancePropertyViolation .
     
-de:LocalOrphanPropertyViolation a owl:Class ;
+rvo:LocalOrphanPropertyViolation a owl:Class ;
     rdfs:label "Local Orphan Property Violation" ;
     rdfs:comment "No property class associated with property." ;
-    rdfs:subClassOf de:InstancePropertyViolation .
+    rdfs:subClassOf rvo:InstancePropertyViolation .
     
-de:NotAnElementViolation a owl:Class ;
+rvo:NotAnElementViolation a owl:Class ;
     rdfs:label "Not an Element Violation" ;
     rdfs:comment "Not an element of enumeration, intersection, or union." ;
-    rdfs:subClassOf de:InstanceViolation .
+    rdfs:subClassOf rvo:InstanceViolation .
     
-de:ObjectInvalidAtClassViolation a owl:Class ;
+rvo:ObjectInvalidAtClassViolation a owl:Class ;
     rdfs:label "Object Invalid at Class Violation" ;
     rdfs:comment "Not an lement of enumeration or more than one branch of disjoint union is valid or element is not valid at any class of union or complement is valid." ;
-    rdfs:subClassOf de:NotAnElementViolation .
+    rdfs:subClassOf rvo:NotAnElementViolation .
     
-de:NotRestrictionElementViolation a owl:Class ;
+rvo:NotRestrictionElementViolation a owl:Class ;
     rdfs:label "Not Restriction Element Violation" ;
     rdfs:comment "No values from restriction class or some values not from restriction class or cardinality too small on restriction class or cardinality too large on restriction class or cardinality unequal on restriction class or qualified cardinality too small on restriction class or qualified cardinality too large on restriction class or qualified cardinality unequal on restriction class or hasValue constraint violated." ;
-    rdfs:subClassOf de:NotAnElementViolation .
+    rdfs:subClassOf rvo:NotAnElementViolation .
     
-de:EdgeOrphanInstanceViolation a owl:Class ;
+rvo:EdgeOrphanInstanceViolation a owl:Class ;
     rdfs:label "Edge Orphan Instance Violation" ;
     rdfs:comment "The instance has no class or an invalid domain class." ;
-    rdfs:subClassOf de:NotAnElementViolation .
+    rdfs:subClassOf rvo:NotAnElementViolation .
     
-de:DataInvalidAtDatatypeViolation a owl:Class ;
+rvo:DataInvalidAtDatatypeViolation a owl:Class ;
     rdfs:label "Data Invalid at Datatype Violation" ;
     rdfs:comment "Not an element of enumeration or not an element of intersection or not an element of union or literal cannot be an object." ;
-    rdfs:subClassOf de:NotAnElementViolation .
+    rdfs:subClassOf rvo:NotAnElementViolation .
     
-de:NotBaseTypeElementViolation a owl:Class ;
+rvo:NotBaseTypeElementViolation a owl:Class ;
     rdfs:label "Not Base Type Element Violation" ;
     rdfs:comment "The value is not element of the specified datatype." ;
-    rdfs:subClassOf de:DataInvalidAtDatatypeViolation .
+    rdfs:subClassOf rvo:DataInvalidAtDatatypeViolation .
     
-de:InstanceBlankNodeViolation a owl:Class ;
+rvo:InstanceBlankNodeViolation a owl:Class ;
     rdfs:label "Instance Blank Node Violation" ;
     rdfs:comment "Subject, preidcate, or object is a blank node." ;
-    rdfs:subClassOf de:InstanceViolation .
+    rdfs:subClassOf rvo:InstanceViolation .
