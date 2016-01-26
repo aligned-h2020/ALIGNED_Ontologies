@@ -20,14 +20,14 @@
     Examples:
     <table>
     <tr><th>Error</th><th>Message</th><th>Attributes</th></tr>
-    <tr><td>notSubClassOfClass</td><td>The class https://w3id.org/diopp#AcceptanceCriteria is not a subclass of a valid class https://w3id.org/dio#Evaluation</td><td>{ "child": "https://w3id.org/diopp#AcceptanceC...</td></tr>
-    <tr><td>notSubPropertyOfProperty</td><td>http://aligned-project.eu/ontologies/dlo#isSupportedBy is not a sub-property of a valid property http://www.w3.org/ns/prov#wasAssociatedWith</td><td>{ "child": "http://aligned-project.eu/ontologi...</td></tr>
-    <tr><td>invalidRange</td><td>ObjectProperty Range http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task is not a valid range for property http://purl.org/slo/hasTask.</td><td>{ "property": "http://purl.org/slo/hasTask", ...</td></tr>
-    <tr><td>noImmediateDomain</td><td>Object property http://purl.org/slo/hasOutcome has no specified domain.</td><td>{ "property": "http://purl.org/slo/hasOutcome"...</td></tr>
-    <tr><td>noImmediateRange</td><td>Object property http://purl.org/slo/hasOutcome has no specified range.</td><td>{ "property": "http://purl.org/slo/hasOutcome"...</td></tr>
-    <tr><td>notUniqueProperty</td><td>http://www.w3.org/2000/01/rdf-schema#comment is not a unique property name, some property with this name already exists</td><td>{ "property": "http://www.w3.org/2000/01/rdf-s...</td></tr>
-    <tr><td>rangeNotSubsumed</td><td>Invalid range on property http://purl.org/slo/hasActivity, due to failure of range subsumption.</td><td>{ "property": "http://purl.org/slo/hasActivity...</td></tr>
-    <tr><td>notIntersectionOfClass</td><td>The class _:sip13 is not an intersection of a valid class http://aligned.cs.ox.ac.uk/ontologies/slo#SoftwareLifecycleProcess</td><td>{ "child": "_:sip13", "parent": "http://al...</td></tr>
+    <tr><td>notSubClassOfClass</td><td>The class https://w3id.org/diopp#AcceptanceCriteria is not a subclass of a valid class https://w3id.org/dio#Evaluation</td><td>{ \"child\": \"https://w3id.org/diopp#AcceptanceC...</td></tr>
+    <tr><td>notSubPropertyOfProperty</td><td>http://aligned-project.eu/ontologies/dlo#isSupportedBy is not a sub-property of a valid property http://www.w3.org/ns/prov#wasAssociatedWith</td><td>{ \"child\": \"http://aligned-project.eu/ontologi...</td></tr>
+    <tr><td>invalidRange</td><td>ObjectProperty Range http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task is not a valid range for property http://purl.org/slo/hasTask.</td><td>{ \"property\": \"http://purl.org/slo/hasTask\", ...</td></tr>
+    <tr><td>noImmediateDomain</td><td>Object property http://purl.org/slo/hasOutcome has no specified domain.</td><td>{ \"property\": \"http://purl.org/slo/hasOutcome\"...</td></tr>
+    <tr><td>noImmediateRange</td><td>Object property http://purl.org/slo/hasOutcome has no specified range.</td><td>{ \"property\": \"http://purl.org/slo/hasOutcome\"...</td></tr>
+    <tr><td>notUniqueProperty</td><td>http://www.w3.org/2000/01/rdf-schema#comment is not a unique property name, some property with this name already exists</td><td>{ \"property\": \"http://www.w3.org/2000/01/rdf-s...</td></tr>
+    <tr><td>rangeNotSubsumed</td><td>Invalid range on property http://purl.org/slo/hasActivity, due to failure of range subsumption.</td><td>{ \"property\": \"http://purl.org/slo/hasActivity...</td></tr>
+    <tr><td>notIntersectionOfClass</td><td>The class _:sip13 is not an intersection of a valid class http://aligned.cs.ox.ac.uk/ontologies/slo#SoftwareLifecycleProcess</td><td>{ \"child\": \"_:sip13\", \"parent\": \"http://al...</td></tr>
     </table>" ;
 	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
 	dc:title "Reasoning Violations Ontology" ;
