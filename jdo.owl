@@ -7,6 +7,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dlo "http://aligned-project.eu/ontologies/dlo#" >
 ]>
 
 
@@ -16,17 +17,18 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dlo="http://aligned-project.eu/ontologies/dlo#">
     <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/jdo">
-        <dc:date xml:lang="scss.tcd.ie)">02-09-2015</dc:date>
-        <owl:versionInfo xml:lang="scss.tcd.ie)">1.0</owl:versionInfo>
-        <dc:creator xml:lang="scss.tcd.ie)">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
-        <dc:title xml:lang="scss.tcd.ie)">Enterprise Information Processing Domain-specific Meta-Model</dc:title>
-        <dc:description xml:lang="scss.tcd.ie)">The purpose of the Enterprise Information Processing Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
+        <dc:date>02-09-2015</dc:date>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <dc:creator>Bojan Bozic (bozicb@scss.tcd.ie)</dc:creator>
+        <dc:title>Enterprise Information Processing Domain-specific Meta-Model</dc:title>
+        <dc:description>The purpose of the Enterprise Information Processing Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
 
 This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
-        <rdfs:comment xml:lang="scss.tcd.ie)">This ontology provides a description of the data lifecycle for enterprise information processing.</rdfs:comment>
-        <dc:publisher xml:lang="scss.tcd.ie)">Wolters Kluwer</dc:publisher>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for enterprise information processing.</rdfs:comment>
+        <dc:publisher>Wolters Kluwer</dc:publisher>
         <owl:imports rdf:resource="http://aligned-project.eu/ontologies/dlo"/>
         <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/jdo.png"/>
     </owl:Ontology>
