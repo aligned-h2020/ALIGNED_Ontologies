@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dlo "http://aligned-project.eu/ontologies/dlo#" >
+]>
+
+
+<rdf:RDF xmlns="http://aligned-project.eu/ontologies/jdo#"
+     xml:base="http://aligned-project.eu/ontologies/jdo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dlo="http://aligned-project.eu/ontologies/dlo#">
+    <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/jdo">
+        <dc:date>04-02-2016</dc:date>
+        <owl:versionInfo>1.1</owl:versionInfo>
+        <dc:creator>Bojan Bozic (bozicb@scss.tcd.ie)</dc:creator>
+        <dc:title>Enterprise Information Processing Domain-specific Meta-Model</dc:title>
+        <dc:description>The purpose of the Enterprise Information Processing Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
+
+This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.</dc:description>
+        <rdfs:comment>This ontology provides a description of the data lifecycle for enterprise information processing.</rdfs:comment>
+        <dc:publisher>Wolters Kluwer</dc:publisher>
+        <owl:imports rdf:resource="http://aligned-project.eu/ontologies/dlo"/>
+        <dc:description rdf:resource="https://www.scss.tcd.ie/~bozicb/images/jdo.png"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#hasBuildMetadata -->
+
+    <owl:DatatypeProperty rdf:about="http://aligned-project.eu/ontologies/jdo#hasBuildMetadata">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/jdo#Version"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#hasMajor -->
+
+    <owl:DatatypeProperty rdf:about="http://aligned-project.eu/ontologies/jdo#hasMajor">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/jdo#Version"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#hasMinor -->
+
+    <owl:DatatypeProperty rdf:about="http://aligned-project.eu/ontologies/jdo#hasMinor">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/jdo#Version"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#hasPatch -->
+
+    <owl:DatatypeProperty rdf:about="http://aligned-project.eu/ontologies/jdo#hasPatch">
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/jdo#Version"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Analysis -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Analysis">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#CMSExpert -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#CMSExpert">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#ContentArchitect -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#ContentArchitect">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#ControlledVocabulary -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#ControlledVocabulary">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Customer -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Customer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#DataSource -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#DataSource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Design -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Design">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Extraction -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Extraction">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Implementation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Implementation">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Integration -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Integration">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#IssueTicket -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#IssueTicket">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#LegalDomainExpert -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#LegalDomainExpert">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#LegalEditor -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#LegalEditor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Linking -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Linking">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Maintenance -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Maintenance">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Modelling -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Modelling">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Planning -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Planning">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#ProductOwner -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#ProductOwner">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Publishing -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Publishing">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#RequirementsDocument -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#RequirementsDocument">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SchemaChange -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SchemaChange">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SchemaExpert -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SchemaExpert">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#ServerInfrastructure -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#ServerInfrastructure">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SoftwareAnalyst -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SoftwareAnalyst">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SoftwareDeveloper -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SoftwareDeveloper">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SoftwareManager -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SoftwareManager">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SoftwareTester -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SoftwareTester">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#SourceCode -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#SourceCode">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Specification -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Specification">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#TestCase -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#TestCase">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#TestingSuite -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#TestingSuite">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#TextFile -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#TextFile">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Transformation -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Transformation">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Usage -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Usage">
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://aligned-project.eu/ontologies/jdo#Version -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/jdo#Version">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aligned-project.eu/ontologies/jdo#hasMinor"/>
+                <owl:someValuesFrom rdf:resource="&xsd;nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aligned-project.eu/ontologies/jdo#hasPatch"/>
+                <owl:someValuesFrom rdf:resource="&xsd;nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://aligned-project.eu/ontologies/jdo#hasMajor"/>
+                <owl:someValuesFrom rdf:resource="&xsd;nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
