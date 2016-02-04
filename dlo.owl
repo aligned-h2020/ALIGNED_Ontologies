@@ -9,6 +9,7 @@
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dataid "http://dataid.dbpedia.org/ns/core#" >
 ]>
 
 
@@ -20,7 +21,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dataid="http://dataid.dbpedia.org/ns/core#" >
+     
     <owl:Ontology rdf:about="http://aligned-project.eu/ontologies/dlo">
         <owl:versionInfo rdf:datatype="&xsd;decimal">1.0</owl:versionInfo>
         <dc:creator rdf:datatype="&xsd;string">Bojan Božić (bozicb@scss.tcd.ie)</dc:creator>
@@ -194,7 +197,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#consumes">
         <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#DataEntity"/>
         <owl:inverseOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
     </owl:ObjectProperty>
     
@@ -249,7 +252,7 @@ It captures various processes involved in the lifecycle of data and answeres the
 
     <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#produces">
         <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Process"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://aligned-project.eu/ontologies/dlo#DataEntity"/>
     </owl:ObjectProperty>
     
 
@@ -261,12 +264,23 @@ It captures various processes involved in the lifecycle of data and answeres the
         <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
     </owl:ObjectProperty>
     
+    
+    <!-- http://aligned-project.eu/ontologies/dlo#stores -->
+
+    <owl:ObjectProperty rdf:about="http://aligned-project.eu/ontologies/dlo#stores">
+        <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
+        <rdfs:domain rdf:resource="http://aligned-project.eu/ontologies/dlo#Repository"/>
+    </owl:ObjectProperty>
 
 
+    <!-- http://aligned-project.eu/ontologies/dlo#isDistributionOf -->
+
+    <rdf:Description rdf:about="http://aligned-project.eu/ontologies/dlo#isDistributionOf"/>
+    
+    
     <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
 
     <rdf:Description rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
-    
 
 
     <!-- 
@@ -305,7 +319,7 @@ and networking techniques.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataArchitect">
         <rdfs:label>Data Architect</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataProcessPerson"/>
         <rdfs:comment>A Data Architect is an increasingly important role. It is a natural evolution from Data Analyst and Database Designer, and reflects the emergence. of Internet Web Sites which need to integrate data from different unrelated Data Sources.</rdfs:comment>
     </owl:Class>
     
@@ -315,18 +329,18 @@ and networking techniques.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataEngineer">
         <rdfs:label>Data Engineer</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataProcessPerson"/>
         <rdfs:comment>Data engineers are the designers, builders and managers of an information infrastructure. They develop the architecture that helps analyze and process data in the way the organization needs it. And they make sure those systems are performing smoothly. Data science is a team sport.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://aligned-project.eu/ontologies/dlo#DataProcessRole -->
+    <!-- http://aligned-project.eu/ontologies/dlo#DataProcessPerson -->
 
-    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessRole">
-        <rdfs:label>Data Process Role</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
-        <rdfs:comment>A general role class for roles in the data processing lifecycle.</rdfs:comment>
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataProcessPerson">
+        <rdfs:label>Data Process Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:comment>A person who is involved in the data processing lifecycle.</rdfs:comment>
     </owl:Class>
     
 
@@ -335,7 +349,7 @@ and networking techniques.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataSource">
         <rdfs:label>Data Source</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataEntity"/>
         <rdfs:comment>A data source defines where data comes from.</rdfs:comment>
     </owl:Class>
     
@@ -345,7 +359,7 @@ and networking techniques.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DomainExpert">
         <rdfs:label>Domain Expert</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataProcessPerson"/>
         <rdfs:comment>A person who is an authority in a particular area or topic. The term domain expert is frequently used in expert systems software development, and there the term always refers to the domain other than the software domain.</rdfs:comment>
     </owl:Class>
     
@@ -399,7 +413,7 @@ complete, consistent, reliable etc.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Repository">
         <rdfs:label>Repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataEntity"/>
         <rdfs:comment>A central location in which data is stored and managed.</rdfs:comment>
     </owl:Class>
     
@@ -430,8 +444,18 @@ scalability.</rdfs:comment>
 
     <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#SystemAdministrator">
         <rdfs:label>System Administrator</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+        <rdfs:subClassOf rdf:resource="http://aligned-project.eu/ontologies/dlo#DataProcessPerson"/>
         <rdfs:comment>A person who is responsible for managing the data engineering system.</rdfs:comment>
+    </owl:Class>
+    
+    
+    
+    <!-- http://aligned-project.eu/ontologies/dlo#DataEntity -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#DataEntity">
+        <rdfs:label>Data Entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A class for general data entities.</rdfs:comment>
     </owl:Class>
     
 
@@ -460,16 +484,19 @@ scalability.</rdfs:comment>
     
 
 
-    <!-- http://www.w3.org/ns/prov#Role -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Role"/>
-    
-
-
     <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
     
+    
+    <!-- http://aligned-project.eu/ontologies/dlo#Distribution -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Distribution"/>
+    
+    
+    <!-- http://aligned-project.eu/ontologies/dlo#Dataset -->
+
+    <owl:Class rdf:about="http://aligned-project.eu/ontologies/dlo#Dataset"/>
 
 
     <!-- 
