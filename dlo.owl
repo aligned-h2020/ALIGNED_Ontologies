@@ -33,7 +33,7 @@
 
 This ontology imports the W3C PROV ontology available at http://www.w3.org/TR/prov-o/. It also utilises concepts defined in the LOD2 project available at http://stack.lod2.eu/blog/.</dc:description>
         <terms:publisher rdf:datatype="&xsd;dateTime">Trinity College Dublin</terms:publisher>
-        <dc:date>08-07-2015</dc:date>
+        <dc:date>05-02-2015</dc:date>
         <rdfs:comment>This ontology provides a description of the data lifecycle for Linked Data. 
 
 It captures various processes involved in the lifecycle of data and answeres the following questions:
