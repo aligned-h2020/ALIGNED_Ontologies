@@ -1,0 +1,209 @@
+# Imports
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+
+# Ontology Definitions
+
+<http://aligned-project.eu/ontologies/dlo>
+  a owl:Ontology ;
+  owl:versionInfo "1.10.000"^^xsd:string ;
+  dc11:creator "Bojan Božić (bozicb@scss.tcd.ie)"^^xsd:string ;
+  dc:title "Data Lifecycle Ontology"^^xsd:string ;
+  dc11:contributor "Kevin C. Feeney (kevin.feeney@cs.tcd.ie)"^^xsd:string, "Rob Brennan (rob.brennan@cs.tcd.ie)"^^xsd:string ;
+  dc11:description """The purpose of the Data Lifecycle Ontology is to provide a set of conceptual entities, agents, activities, and roles to represent the general data engineering process. Furthermore, it is the basis for deriving specific domain ontologies which represent lifecycles of concrete data engineering projects such as DBpedia or Seshat.
+        
+DLO uses the W3C PROV ontology  represented by the classes Role, Person, Entity, and Activity. It uses the Process class which is derived from Activity to implement the Linked Data Stack lifecycle stages as subclasses. This allows the user to represent linked open data activities in the data lifecycle metamodel. In addition datasets, data sources and data repositories have been modelled. For datasets it imports the W3C Data Catalog Vocabulary (DCAT) definition of a dataset as it is a broad definition that goes beyond representing only RDF-based datasets.
+
+The W3C PROV ontology is available at http://www.w3.org/TR/prov-o/. The concepts defined in the LOD2 project are available at http://stack.lod2.eu/blog/."""^^xsd:string, <https://www.scss.tcd.ie/~bozicb/images/dlo.png> ;
+  dc:publisher "Trinity College Dublin"^^xsd:string ;
+  dc11:date "05-02-2015"^^xsd:dateTime ;
+  rdfs:comment """This ontology provides a description of the data lifecycle for Linked Data. 
+
+It captures various processes involved in the lifecycle of data and answeres the following questions:
+
+- What lifecycle stage is a specific dataset or data item currently in?
+- What is the next lifecycle stage for a particular data item (workflows)?
+- What is the appropriate widget or form to display this data item in for a specific user role, given the data item’s state (lifecycle stage)?
+- What is the context for a specific data item (dataset name/URI/meta-data URI, PROV records, …)?
+- Which agents, processes, and entities are involved in a lifecycle run?"""^^xsd:string ;
+  owl:imports <http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl>, <http://www.w3.org/ns/dcat>, <http://www.w3.org/ns/prov-o-20130430> .
+
+# Object Properties
+
+dlo:consumes
+  a owl:ObjectProperty ;
+  rdfs:domain dlo:DataLifecycleProcess ;
+  rdfs:range dlo:DataEntity ;
+  owl:inverseOf prov:wasAttributedTo .
+
+dlo:produces
+  a owl:ObjectProperty ;
+  rdfs:domain dlo:DataLifecycleProcess ;
+  rdfs:range dlo:DataEntity .
+
+dlo:initiates
+  a owl:ObjectProperty ;
+  rdfs:domain dlo:DataProcessPerson ;
+  rdfs:range dlo:DataLifecycleProcess .
+
+dlo:isResponsibleFor
+  a owl:ObjectProperty ;
+  rdfs:domain prov:Person ;
+  rdfs:range dlo:DataLifecycleProcess .
+
+dlo:isSupportedBy
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:wasAssociatedWith ;
+  rdfs:domain dlo:DataLifecycleProcess ;
+  rdfs:range prov:SoftwareAgent .
+
+dlo:supports
+  a owl:ObjectProperty ;
+  rdfs:range dlo:DataLifecycleProcess ;
+  rdfs:domain dlo:DataSoftwareAgent .
+
+dlo:stores
+  a owl:ObjectProperty ;
+  rdfs:range dataid:Distribution ;
+  rdfs:domain dlo:Repository .
+
+dlo:hasSubProcess
+  a owl:ObjectProperty ;
+  rdfs:domain dlo:DataLifecycleProcess ;
+  rdfs:range dlo:DataLifecycleProcess .
+
+# Classes
+
+dlo:DataLifecycleProcess
+  a owl:Class ;
+  rdfs:label "Data Lifecycle Process" ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:comment "A general class for describing specific steps during the processing of linked data." .
+
+dlo:Authoring
+  a owl:Class ;
+  rdfs:label "Authoring" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
+  rdfs:comment """The LOD2 Stack facilitates the authoring of rich semantic knowledge bases, by leveraging Semantic Wiki technology, the WYSIWYM paradigm (What You See Is What You Mean) and distributed social, semantic collaboration
+and networking techniques.""" .
+
+dlo:Classification
+  a owl:Class ;
+  rdfs:label "Classification" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
+  rdfs:comment "Linked Data on the Web is mainly raw instance data. For data integration, fusion, search and many other applications, however, we need this raw instance data to be classified into taxonomies. In the LOD2 stack, semi-automatic components for this purpose are included." .
+
+dlo:Evolution
+  a owl:Class ;
+  rdfs:label "Evolution/Repair" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:comment """Data on the Web is dynamic. We need to facilitate the evolution of data while
+keeping things stable. Changes and modifications to knowledge bases, vocabularies and ontologies should be transparent and observable.
+The LOD2 Stack comprises methods to spot problems in knowledge bases and to automatically suggest repair strategies.""" .
+
+dlo:Interlinking
+  a owl:Class ;
+  rdfs:label "Interlinking" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:comment "Creating and maintaining links in a (semi-)automated fashion is still a major challenge and crucial for establishing coherence and facilitating data integration as outlined in the publishing usage scenario in the introduction. We seek linking approaches yielding high precision and recall, which configure themselves automatically or with end-user feedback." .
+
+dlo:QualityAnalysis
+  a owl:Class ;
+  rdfs:label "Quality Analysis" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:comment """The quality of content on the Data Web varies, as the quality of content on the document web varies. The LOD2 Stack comprises techniques for assessing quality based on characteristics such as provenance, context, coverage or structure. The goal in our application scenarios is to assess whether data sources for a publisher are complete, consistent, reliable etc.""" .
+
+dlo:Search
+  a owl:Class ;
+  rdfs:label "Search/Browsing/Exploration" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
+  rdfs:comment "For many users, the Data Web is still invisible below the surface. LOD2 develops search, browsing, exploration and visualization techniques for different kinds of Linked Data (i.e. spatial, temporal, statistical), which make the Data Web sensible for real users." .
+
+dlo:Storage
+  a owl:Class ;
+  rdfs:label "Storage" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:comment """Efficient RDF data management techniques fulfilling requirements of global publishers comprise column-store technology, dynamic query optimization, adaptive caching of joins, optimized graph processing and cluster/cloud scalability.""" .
+
+dlo:Extraction
+  a owl:Class ;
+  rdfs:label "Extraction" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:comment """Gathering data from unstructured, semi-structured, and structured sources.""" .
+
+dlo:DataProcessPerson
+  a owl:Class ;
+  rdfs:label "Data Process Person" ;
+  rdfs:subClassOf prov:Person ;
+  rdfs:comment "A person who is involved in the data processing lifecycle." .
+
+dlo:DataEngineer
+  a owl:Class ;
+  rdfs:label "Data Engineer" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Data engineers are the designers, builders and managers of an information infrastructure. They develop the architecture that helps analyze and process data in the way the organization needs it. And they make sure those systems are performing smoothly. Data science is a team sport." .
+
+dlo:DomainExpert
+  a owl:Class ;
+  rdfs:label "Domain Expert" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "A person who is an authority in a particular area or topic. The term domain expert is frequently used in expert systems software development, and there the term always refers to the domain other than the software domain." .
+
+dlo:SystemAdministrator
+  a owl:Class ;
+  rdfs:label "System Administrator" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "A person who is responsible for managing the data engineering system." .
+
+dlo:User
+  a owl:Class ;
+  rdfs:label "User" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "A person who is using the data engineering system." .
+
+dlo:DataEntity
+  a owl:Class ;
+  rdfs:label "Data Entity" ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:comment "A class for general data entities." .
+
+dlo:DataSource
+  a owl:Class ;
+  rdfs:label "Data Source" ;
+  rdfs:subClassOf dlo:DataEntity ;
+  rdfs:comment "A data source defines where data comes from." .
+
+dlo:Repository
+  a owl:Class ;
+  rdfs:label "Repository" ;
+  rdfs:subClassOf dlo:DataEntity ;
+  rdfs:comment "A central location in which data is stored and managed." .
+
+dlo:DataArtifact
+  a owl:Class ;
+  rdfs:label "Data Artifact" ;
+  rdfs:subClassOf dlo:DataEntity ;
+  rdfs:comment "A random artifact as an item involved in the datalifecycle." .
+
+dlo:TestCase
+  a owl:Class ;
+  rdfs:label "Test Case" ;
+  rdfs:subClassOf dlo:DataEntity ;
+  rdfs:comment "A general data engineering system test case." .
+
+dataid:Dataset
+  rdfs:subClassOf dlo:DataEntity .
+
+dlo:DataSoftwareAgent
+  a owl:Class ;
+  rdfs:label "Data Software Agent" ;
+  rdfs:subClassOf prov:SoftwareAgent ;
+  rdfs:comment "A specific software agent involved in the data lifecycle." .
