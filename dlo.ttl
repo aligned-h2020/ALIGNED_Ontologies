@@ -104,7 +104,7 @@ dlo:Classification
 dlo:Evolution
   a owl:Class ;
   rdfs:label "Evolution/Repair" ;
-  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
   rdfs:comment """Data on the Web is dynamic. We need to facilitate the evolution of data while
 keeping things stable. Changes and modifications to knowledge bases, vocabularies and ontologies should be transparent and observable.
 The LOD2 Stack comprises methods to spot problems in knowledge bases and to automatically suggest repair strategies.""" .
@@ -112,13 +112,13 @@ The LOD2 Stack comprises methods to spot problems in knowledge bases and to auto
 dlo:Interlinking
   a owl:Class ;
   rdfs:label "Interlinking" ;
-  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
   rdfs:comment "Creating and maintaining links in a (semi-)automated fashion is still a major challenge and crucial for establishing coherence and facilitating data integration as outlined in the publishing usage scenario in the introduction. We seek linking approaches yielding high precision and recall, which configure themselves automatically or with end-user feedback." .
 
 dlo:QualityAnalysis
   a owl:Class ;
   rdfs:label "Quality Analysis" ;
-  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
   rdfs:comment """The quality of content on the Data Web varies, as the quality of content on the document web varies. The LOD2 Stack comprises techniques for assessing quality based on characteristics such as provenance, context, coverage or structure. The goal in our application scenarios is to assess whether data sources for a publisher are complete, consistent, reliable etc.""" .
 
 dlo:Search
@@ -130,13 +130,13 @@ dlo:Search
 dlo:Storage
   a owl:Class ;
   rdfs:label "Storage" ;
-  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
   rdfs:comment """Efficient RDF data management techniques fulfilling requirements of global publishers comprise column-store technology, dynamic query optimization, adaptive caching of joins, optimized graph processing and cluster/cloud scalability.""" .
 
 dlo:Extraction
   a owl:Class ;
   rdfs:label "Extraction" ;
-  rdfs:subClassOf dlo:DataLifecycleProcess> ;
+  rdfs:subClassOf dlo:DataLifecycleProcess ;
   rdfs:comment """Gathering data from unstructured, semi-structured, and structured sources.""" .
 
 dlo:DataProcessPerson
