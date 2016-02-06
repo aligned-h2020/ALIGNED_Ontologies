@@ -1,0 +1,235 @@
+# Imports
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix eipdm: <http://aligned-project.eu/ontologies/eipdm#> .
+@prefix dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix slo: <http://aligned.cs.ox.ac.uk/ontologies/slo#> .
+
+# Ontology
+
+<http://aligned-project.eu/ontologies/eipdm>
+  a owl:Ontology ;
+  dc11:date "05-02-2016" ;
+  owl:versionInfo "1.11.000" ;
+  dc11:creator "Bojan Bozic (bozicb@scss.tcd.ie)" ;
+  dc11:title "Enterprise Information Processing Domain-specific Meta-Model" ;
+  dc11:description """The purpose of the Enterprise Information Processing Domain-specific Meta-Model is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process. It is based on the general Data Lifecycle Ontology.
+
+The initial information gathered to build the domain-specific enterprise information processing metamodel is based on the JURION use case.
+The JURION use case includes both processes for data and software development and therefore uses the data lifecycle ontology and the software lifecycle ontology.
+
+The ontology models mandatory data requirements for specific processes and checks if they are fulfilled. The location of error occurence within the process is registered and the type of error or incosistency asserted. Furthermore, we capture how many errors occured, in which dataset they were detected, what was responsible for it, who fixed it, when was it fix, and how long does fixing take. Captured information about the dataset include publishing, versioning, and properties. Functionalities are associated to specific datasets and changing of data is tracked. Other areas of interest are links and how they behave especially when linking eternal data sources as well as mapping ontologies and information of processes about external data changes.
+
+This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo.""", <https://www.scss.tcd.ie/~bozicb/images/jdo.png> ;
+  rdfs:comment "This ontology provides a description of the data lifecycle for enterprise information processing. It models both the data and the software lifecycle on the example of the JURION platform. Furthermore, it supports different kinds of entities, users, and versioning." ;
+  dc11:publisher "Wolters Kluwer" ;
+  owl:imports <http://aligned-project.eu/ontologies/dlo> .
+
+# Datatype Properties
+
+eipdm:hasBuildMetadata
+  a owl:DatatypeProperty ;
+  rdfs:domain eipdm:Version ;
+  rdfs:range xsd:string ;
+  rdfs:comment "Build meta-data as string is a place for potential future growth of the model, depending on use cases." .
+
+eipdm:hasMajor
+  a owl:DatatypeProperty ;
+  rdfs:domain eipdm:Version ;
+  rdfs:range xsd:decimal, xsd:nonNegativeInteger .
+
+eipdm:hasMinor
+  a owl:DatatypeProperty ;
+  rdfs:domain eipdm:Version ;
+  rdfs:range xsd:nonNegativeInteger .
+
+eipdm:hasPatch
+  a owl:DatatypeProperty ;
+  rdfs:domain eipdm:Version ;
+  rdfs:range xsd:nonNegativeInteger .
+
+# Object Properties
+
+eipdm:hasVersion
+  a owl:ObjectProperty ;
+  rdfs:domain slo:ProcessOutcome ;
+  rdfs:range eipdm:Version .
+
+# Classes
+
+eipdm:Transformation
+  a owl:Class ;
+  rdfs:label "Transformation" ;
+  rdfs:subClassOf dlo:DataLifecycleProcess, slo:SoftwareLifecycleProcess ;
+  rdfs:comment "Transformation is a data and software lifecycle process which is the base class for several subprocesses for changing data or software artefacts." .
+
+eipdm:SchemaAuthoring
+  a owl:Class ;
+  rdfs:label "Schema Authoring" ;
+  rdfs:subClassOf dlo:Authoring ;
+  rdfs:comment "Creation of a schema as a data lifecycle process." .
+
+eipdm:DataAuthoring
+  a owl:Class ;
+  rdfs:label "Data Authoring" ;
+  rdfs:subClassOf dlo:Authoring ;
+  rdfs:comment "Generation of data as a data lifecycle process." .
+
+eipdm:ContentArchitect
+  a owl:Class ;
+  rdfs:label "Content Architect" ;
+  rdfs:subClassOf dlo:DataEngineer ;
+  rdfs:comment "Person responsible for the content of a software system." .
+
+eipdm:Customer
+  a owl:Class ;
+  rdfs:label "Customer" ;
+  rdfs:subClassOf dlo:User ;
+  rdfs:comment "Person who is involved in requirement engineering and usage of the software or data product." .
+
+eipdm:LegalDomainExpert
+  a owl:Class ;
+  rdfs:label "Legal Domain Expert" ;
+  rdfs:subClassOf dlo:DomainExpert ;
+  rdfs:comment "Person who is an expert for legal issues in a certain domain." .
+
+eipdm:LegalEditor
+  a owl:Class ;
+  rdfs:label "Legal Editor" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person who edits legal documents for a software or data system." .
+
+eipdm:ProductOwner
+  a owl:Class ;
+  rdfs:label "Product Owner" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person who owns and uses the end product." .
+
+eipdm:SchemaExpert
+  a owl:Class ;
+  rdfs:label "Schema Expert" ;
+  rdfs:subClassOf dlo:DataEngineer ;
+  rdfs:comment "Person who is an expert in development of schemas for a data system." .
+
+eipdm:SoftwareAnalyst
+  a owl:Class ;
+  rdfs:label "Software Analyst" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person responsible for analysing software systems and requirements engineering." .
+
+eipdm:SoftwareDeveloper
+  a owl:Class ;
+  rdfs:label "Software Developer" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person responsible for development of software systems." .
+
+eipdm:SoftwareManager>
+  a owl:Class ;
+  rdfs:label "Software Manager" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person responsible for management of software engineering projects." .
+
+eipdm:SoftwareTester
+  a owl:Class ;
+  rdfs:label "Software Tester" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person responsible for testing software systems before releases." .
+
+eipdm:CMSExpert
+  a owl:Class ;
+  rdfs:label "CMS Expert" ;
+  rdfs:subClassOf dlo:DataProcessPerson ;
+  rdfs:comment "Person who is an expert in development and management of content management systems." .
+
+eipdm:InternalData
+  a owl:Class ;
+  rdfs:label "Internal Data" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "Unspecified internal system data." .
+
+eipdm:ControlledVocabulary
+  a owl:Class ;
+  rdfs:label "Controlled Vocabulary" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A controlled vocabulary process outcome." .
+
+eipdm:IssueTicket
+  a owl:Class ;
+  rdfs:label "Issue Ticket" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A bug report in a software system." .
+
+eipdm:RequirementsDocument
+  a owl:Class ;
+  rdfs:label "Requirements Document" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A requirements document as output of requirements engineering." .
+
+eipdm:SchemaChange
+  a owl:Class ;
+  rdfs:label "Schema Change" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A document describing the change of schema for a sofware or data system." .
+
+eipdm:ServerInfrastructure
+  a owl:Class ;
+  rdfs:label "Server Infrastructure" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "The server infrastructure on which a software or data system is deployed." .
+
+eipdm:DataSource
+  a owl:Class ;
+  rdfs:label "Data Source" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "The data source for a specific kind of data." .
+
+eipdm:SourceFile
+  a owl:Class ;
+  rdfs:label "Source File" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A source file containing source code in a specific programming language." .
+
+eipdm:SourceCode
+  a owl:Class ;
+  rdfs:label "Source Code" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "An unspecified amount (collection) of source code in a specific programming language." .
+
+eipdm:TestCase
+  a owl:Class ;
+  rdfs:label "Test Case" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A test case which tests one specific aspect of a software system." .
+
+eipdm:TestingSuite
+  a owl:Class ;
+  rdfs:label "Testing Suite" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A collection of test cases for a software system." .
+
+eipdm:TestFile
+  a owl:Class ;
+  rdfs:label "Test File" ;
+  rdfs:subClassOf slo:ProcessOutcome ;
+  rdfs:comment "A file containing test suites and/or test cases for a software system." .
+
+eipdm:Version
+  a owl:Class ;
+  rdfs:label "Version" ;
+  rdfs:comment """Versioning model according to Semantic Versioning (<a href='http://semver.org/'>http://semver.org/</a>).""" ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty eipdm:hasMinor ;
+    owl:someValuesFrom xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty eipdm:hasPatch ;
+    owl:someValuesFrom xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty eipdm:hasMajor ;
+    owl:someValuesFrom xsd:nonNegativeInteger
+  ] .
