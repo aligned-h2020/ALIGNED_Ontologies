@@ -126,7 +126,7 @@ eipdm:SoftwareDeveloper
   rdfs:subClassOf dlo:DataProcessPerson ;
   rdfs:comment "Person responsible for development of software systems." .
 
-eipdm:SoftwareManager>
+eipdm:SoftwareManager
   a owl:Class ;
   rdfs:label "Software Manager" ;
   rdfs:subClassOf dlo:DataProcessPerson ;
