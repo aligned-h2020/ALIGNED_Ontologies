@@ -25,13 +25,12 @@
     Class violations are used for reporting issues regarding the TBox and instance violations ABox in general. Therefore, class violations are reported when e.g. property domains are missing, subsumption errors are detected, or class and property cycles are found. Instance violations show instances which are not elements of valid classes, cardinalities which are incorrect, property constraints that are violated, literals and objects which are confused, etc.
     <h2>Example</h2>
     This example shows a ClassViolation which is a SchemaViolation and more specifically a ClassCycleViolation. Such specific violation detection results make it possible to provide exact suggestions to ontology developers or repair agents and trigger ontology improvements.
-    <h3>Ontology Snippet Producing the Violation</h3>
-    <p>
+    <b>Ontology Snippet Producing the Violation</b><p>
     <code>
     seshat:Territory seshat:hasValue xsd:DateTime .
     </code>
     <p>
-    <h3>Resulting RDF Graph after Validation</h3>
+    <b>Resulting RDF Graph after Validation</b><p>
     <img src='https://www.scss.tcd.ie/~bozicb/images/graph2.png'>" ;
 	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
 	dc:title "Reasoning Violations Ontology" ;
