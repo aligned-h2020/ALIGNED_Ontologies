@@ -14,7 +14,7 @@
 
 <http://aligned-project.eu/ontologies/dlo>
   a owl:Ontology ;
-  owl:versionInfo "2.11.000" ;
+  owl:versionInfo "2.12.000" ;
   dc11:creator "Bojan Božić (bozicb@scss.tcd.ie)" ;
   dc:title "Data Lifecycle Ontology" ;
   dc11:contributor "Kevin C. Feeney (kevin.feeney@cs.tcd.ie)", "Rob Brennan (rob.brennan@cs.tcd.ie)" ;
@@ -52,6 +52,7 @@ dlo:produces
 
 dlo:initiates
   a owl:ObjectProperty ;
+  rdfs:subProprtyOf prov:wasAssociatedWith;
   rdfs:domain dlo:DataProcessPerson ;
   rdfs:range dlo:DataLifecycleProcess .
 
