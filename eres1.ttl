@@ -1,0 +1,127 @@
+@prefix   terms: <http://purl.org/dc/terms/> .
+@prefix    owl: <http://www.w3.org/2002/07/owl#> .
+@prefix     dc: <http://purl.org/dc/elements/1.1/> .
+@prefix    xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix   rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix    rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix    prov: <http://www.w3.org/ns/prov#> .
+@prefix    dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix    : <http://aligned-project.eu/ontologies/eres#> .
+
+#@prefix dacura: <http://dacura.cs.tcd.ie/data/dacura#> .
+#@prefix owltime: <http://www.w3.org/2006/time#>.
+
+<http://aligned-project.eu/ontologies/eres#>
+	a owl:Ontology ;
+	dc:contributor "Kevin Feeney" ;		       
+	dc:creator "Bojan Božić" ,	
+		   "Rob Brennan" ;
+	dc:date "2016-02-11" ;
+	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
+	dc:title "E-research in the Social Sciences and Humanities" ;
+	rdfs:comment "This ontology provides a description of the data lifecycle for e-research in social sciences and humanities." ;
+	rdfs:label "Dacura support ontology." ;
+	dc:description "The purpose of the ALIGNED E-research in the Social Sciences and Humanities domain-specific metamodel is to provide a set of concrete entities, agents, activities, and roles to represent the data engineering process for this domain. It is based on the Seshat use case within ALIGNED. It specialises the ALIGNED generic Data Lifecycle Ontology (DLO) and imports the W3C PROV ontology. 
+This model adds support for specific external data sources for datasets like wikis and webpages. It adds new entities to represent candidate data for inclusion in a dataset, reports of historical events and historical interpretations created by domain experts. It extends the set of data lifecycle processes to include data curation activities such as manual data extraction and data publishing. Finally new roles are defined for all the actors in the Seshat databank project: readers, experts, research assistants and so forth that work in the Seshat semi-automated data curation pipelines or workflows. 
+	This ontology imports the W3C PROV ontology available at http://www.w3c.org/TR/prov-o/. It is derived from the Data Lifecycle Ontology available at http://aligned-project.eu/ontologies/dlo." ;
+	dc:description <http://www.aligned-project.eu/data/eres.png> ;
+	dc:publisher "Trinity College Dublin";
+	owl:versionInfo "2.00.000" ;
+	owl:imports <https://w3id.org/dlo>.
+       
+:Candidate rdfs:subClassOf dlo:DataEntity;
+	rdfs:label "Candidate";
+	rdfs:comment "A data item or fact which has been selected for examination to see if it is going to be included into the dataset.".
+
+:Report rdfs:subClassOf dlo:DataEntity;
+	rdfs:label "Report";
+	rdfs:comment "A data item or fact which has been approved for inclusion in the dataset.".
+
+:Interpretation rdfs:subClassOf dlo:DataEntity;
+	rdfs:label "Interpretation";
+	rdfs:comment "A data item or fact which has been validated or selected by a domain expert as reflecting their view of the world as expressed in the dataset.".
+			
+:Reader rdfs:subClassOf dlo:User;
+	rdfs:label "Reader";
+	rdfs:comment "General end-users of the data-sets that have no ability to directly change them.".
+
+:Contributor rdfs:subClassOf dlo:DomainExpert;
+	rdfs:label "Contributor";
+	rdfs:comment "Non-technical users, such as historians and archaeologists, that can easily add data to the daatsets and update existing data.".
+
+:Harvester rdfs:subClassOf :Contributor;
+	rdfs:label "Harvester";
+	rdfs:comment "A data collection role that involves manual collection of facts for inclusion in the dataset or human validation of candidates to create reports in the dataset. Normally filled by research assistants or crow-sourced volunteers." .
+
+:ResearchAssistant rdfs:subClassOf :Contributor;
+	rdfs:label "Research Assistant";
+	rdfs:comment "A research assistant working on the Seshat project." .
+
+:Expert rdfs:subClassOf :Contributor;
+	rdfs:label "Expert";
+	rdfs:comment "A subject matter expert that is working on the Seshat project." .
+
+:Editor rdfs:subClassOf dlo:DomainExpert, dlo:DataEngineer, dlo:SystemAdmin;
+	rdfs:label "Editor";
+	rdfs:comment "Data collection administrators who can moderate, correct, and manage the data in the system over time.".
+
+:DataArchitect rdfs:subClassOf dlo:DataEngineer;
+	rdfs:label "Data Architect";
+	rdfs:comment "Knowledge engineers who can make changes to the dataset schema (data structures) over time and manage transitions between versions of the schema without breaking databank integrity (maintaining and assuring the accuracy and consistency of data over its entire life-cycle).".
+
+:Analysts rdfs:subClassOf dlo:User;
+	rdfs:label "Analysts";
+	rdfs:comment "Statisticians and mathematical modelers who prepare and analyze data from the dataset to investigate scientific questions.".
+
+:Adminstrators rdfs:subClassOf dlo:SystemAdmin;
+	rdfs:label "Administrators";
+	rdfs:comment "Technical administrators can manage the data curation and publication platform or servers to deal with changes in data, schemata, collection tools and publication formats or tools (e.g., visualizations) over time.".
+
+:dacuraPlatform a dlo:DataSoftwareAgent;
+	rdfs:label "Dacura Platform";
+	rdfs:comment "The base Dacura platform, responsible for user management and other basic services.".
+
+:dacuraQualityService a dlo:DataSoftwareAgent;
+	rdfs:label "Dacura Quality Service";
+	rdfs:comment "The Dacura Quality Service provides a REST interface for schema and instance checking. It acts as a validation service and a data integrity gateway to the Dacura triplestore.".
+
+:dacuraScraperService a dlo:DataSoftwareAgent;
+	rdfs:label "Dacura Scraper Service";
+	rdfs:comment "The Dacura Scraper Service provides an interface for scraping data from the Sesaht wiki and generating TSV dump files.".
+
+:ManualExtraction rdfs:subClassOf dlo:Extraction;
+	rdfs:label "Manual Extraction";
+	rdfs:comment "The activity of manually generating cadidates for inclusion into a dataset. For example this may be used for the activity of research assistants." .	
+
+:Scraping rdfs:subClassOf dlo:Extraction;
+	rdfs:label "Scraping";
+	rdfs:comment "The activity of automatically converting a semi or unstructured web data source into a structured data source." .	
+
+:Publishing rdfs:subClassOf dlo:DataLifecycleProcess;
+	rdfs:label "Publishing";
+	rdfs:comment "The activity of publishing data on the web as ready for use by Readers." .	
+
+
+:wiki rdfs:subClassOf dlo:DataSource;
+	rdfs:label "Wiki";
+	rdfs:comment "A wiki used as a source of data for generating candidates for inclusion in the dataset.".
+
+:wikiPage rdfs:subClassOf dlo:DataSource;
+	rdfs:label "Wiki page";
+	rdfs:comment "A particular wiki page idenified by a praticular URL that is used as a source of data for generating candidates for inclusion in the dataset.".
+
+:ra a rdf:Property;
+	rdfs:subPropertyOf prov:wasAttributedTo;	
+	rdfs:label "Research Assistant";
+	rdfs:comment "Designates the RA associated with the creation of a specific Seshat data entity." ;
+	rdfs:domain dlo:DataEntity;
+	rdfs:range :ResearchAssistant.
+
+:expert a rdf:Property;
+	rdfs:subPropertyOf prov:wasAttributedTo;
+	rdfs:label "Expert";
+	rdfs:comment "Designates the Expert associated with the valdiation of a specific Seshat data entity.";
+	rdfs:domain dlo:DataEntity;
+	rdfs:range :Expert .
+
+

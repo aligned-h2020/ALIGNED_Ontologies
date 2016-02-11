@@ -1,0 +1,125 @@
+
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:  <http://www.w3.org/2002/07/owl#>.
+@prefix dc:   <http://purl.org/dc/elements/1.1/>.
+@prefix dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix slo: <http://aligned.cs.ox.ac.uk/ontologies/slo#> .
+@prefix rut: <http://rdfunit.aksw.org/ns/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix : <http://aligned-project.eu/ontologies/cspdo#> .
+
+<http://aligned-project.eu/ontologies/cspdo#>
+	a owl:Ontology ;
+	dc:contributor "Dimitris Kontokostas" ,
+		        "Alan Meehan" ,
+			"Markus Freudenbergn",
+			"Bojan Bozic" ;		       
+	dc:creator    "Rob Brennan" ;
+	dc:date "2016-02-04" ;
+	dc:description "This ontology is used to describe ALIGNED project data lifecycle ontology extensions that are specific to datasets in the crowd sourced dataset domain. It is designed to model the lifecycle of crowd-sourced public datasets in the DBpedia use case within the ALIGNED H2020 project." ;
+	dc:description "This ontology is used to describe the domain-specific extensions to the ALIGNED data lifecycle model ontology (DLO) and software lifecycle ontology (SLO) for crowd-sourced public datasets based on the DBpedia use case within the ALIGNED project. Over time generic features may be migrated to the upper ontology.
+
+The current scope of this ontology is to support extensions needed for DBpedia scenarios within Phase 2 of the ALIGNED project. Thus there is a focus on the validation activities. DBpedia is a large-scale extraction project of unstructured & semi-structured data from different Wikipedia language editions to RDF. This extraction is achieved from a modular extraction framework that is customized to handle multilingualism and structural differences between different Wikipedia language editions. The latest DBpedia release (v. 2016) generated a total of three billion facts from 125 localized versions. As Wikipedia evolves over time the code should be able to adapt to these changes. However, identifying errors at this data scale becomes very hard and validation workflows must be established that will ensure the quality of the extracted data.
+
+ALIGNED is tackling these challenges with data validation and interlink validation tools that communicate their results though the ALIGNED vocabularies." ;
+	dc:rights "This ontology is distributed under a Creative Commons Attribution License - http://creativecommons.org/licenses/by/3.0" ;
+	dc:title "Crowd-sourced Public Dataset Lifecycle Ontology." ;
+	rdfs:label "Dacura support ontology." ;
+	owl:versionInfo "1.01.000" ;
+	dc:publisher "Wolters Kluwer" ;
+        owl:imports <http://aligned-project.eu/ontologies/dlo>, 
+		<http://aligned.cs.ox.ac.uk/ontologies/slo#> ,
+		<http://rdfunit.aksw.org/ns/core#>,
+		<http://dataid.dbpedia.org/ns/core#>,
+		 <http://www.w3.org/ns/prov#>;
+        dc:description <http://www.aligned-project.eu/data/cspdConcepts.png> .
+
+
+# Actors
+## Team Roles
+:ExtractionManager a owl:Class;
+	rdfs:label "Extraction Manager";
+	rdfs:comment "DBpedia team members who run the extraction process for a given DBpedia release." ;
+        rdfs:subClassOf dlo:DataProcessPerson .
+
+:MappingEditor a owl:Class;
+	rdfs:label "Mapping Editor";
+	rdfs:comment "Community members who edit the DBpedia mapping wiki." ;
+        rdfs:subClassOf dlo:DataEngineer .
+
+:OntologyEditor a owl:Class;
+	rdfs:label "Ontology Editor";
+	rdfs:comment "DBpedia foundation members that edit the DBpedia ontology." ;
+        rdfs:subClassOf dlo:DataEngineer . 
+
+:ReleaseManager a owl:Class;
+	rdfs:label "Release Manager";
+	rdfs:comment "DBpedia team members that are responsible for the actions leading to a given release of DBpedia." ;
+        rdfs:subClassOf dlo:DataProcessPerson .
+   
+:Developer a owl:Class;
+	rdfs:label "Developer";
+	rdfs:comment "DBpedia team members or community who write code for the extraction framework or tools" ;
+        rdfs:subClassOf dlo:DataProcessPerson .
+
+
+## Software
+:ExtractionAgent a owl:Class;
+	rdfs:label "Extraction Software or Agent";
+	rdfs:comment "Software agents that perform the extraction such as DBpedia live." ;
+        rdfs:subClassOf prov:SoftwareAgent .
+
+
+# Entities
+
+:wikipedia a dlo:DataSource, dataid:Dataset;
+	rdfs:label "Wikipedia" ;
+	rdfs:comment "The original input source for DBpedia." .
+
+
+:dBpediaExtractionFramework a :ExtractionAgent;
+	rdfs:label "DBpedia Extraction Framework" ;
+	rdfs:comment "The source code used to extract knowledge from Wikipedia." .
+
+
+:dBpediaOntology a dataid:Dataset, dlo:DataEntity;
+	rdfs:label "DBpedia Ontology";
+	rdfs:comment "Crowdsourced OWL ontology describing DBpedia concepts and properties." .
+
+:infoboxToOntologyMappings a dataid:Dataset, dlo:DataEntity;
+	rdfs:label "Infobox to Ontology mappings";
+	rdfs:comment "Crowdsourced mappings between the DBpedia ontology and Wikipedia infoboxes. " .
+
+
+rut:TestCase rdfs:subClassOf dlo:TestCase .
+
+rut:TestCaseResult rdfs:subClassOf dlo:TestCaseResult .
+
+# Activities
+
+:Release rdfs:subClassOf dlo:Process;
+	rdfs:label "DBpedia Release Process" ;
+	rdfs:comment "Releasing a DBpedia dataset is a complex procedure that involves a lot of pre-processing steps, the actual extraction, additional postprocessing steps and finally the dataset publishing step. This activity is performed by the release manager using the extraction framework and DBpedia tools. " ;
+	dlo:hasSubProcess :PreProcessing, :ExtractionExeution, :PostProcessing, :Publishing .
+
+:PreProcessing rdfs:subClassOf dlo:Extraction;
+	rdfs:label "DBpedia Release Pre-Processing" ;
+	rdfs:comment "Releasing a DBpedia dataset is a complex procedure that involves a lot of pre-processing steps performed before the actual extraction of data from Wikipedia. " .
+
+
+:ExtractionExecution rdfs:subClassOf dlo:Extraction;
+	rdfs:label "DBpedia Release Extraction" ;
+	rdfs:comment "Running the extraction framework for the actual extraction of data from Wikipedia. " .
+
+:PostProcessing rdfs:subClassOf dlo:Interlinking, dlo:Quality, dlo:Evolution;
+	rdfs:label "DBpedia Release Post-Processing" ;
+	rdfs:comment "Running checks and enhancements to the data generated by the DBpedia extraction framework before publishing. " .
+
+:Publishing rdfs:subClassOf dlo:Process;
+	rdfs:label "DBpedia Release Publishing" ;
+	rdfs:comment "Publishing a new DBpedia release on the web." .
+
+
