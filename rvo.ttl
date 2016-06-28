@@ -160,25 +160,26 @@ rvo:subject a owl:ObjectProperty ;
     rdfs:label "Subject" ;
     rdfs:comment "The subject of a triple involved in a violation." ;
     rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
-    rdfs:range rdf:Resource .
+    rdfs:range owl:Thing .
     
 rvo:predicate a owl:ObjectProperty ;
     rdfs:label "Predicate" ;
     rdfs:comment "The predicate of a triple involved in a violation." ;
     rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
-    rdfs:range rdf:Resource .
+    rdfs:range owl:Thing .
     
 rvo:object a owl:ObjectProperty ;
     rdfs:label "Object" ;
     rdfs:comment "The object of a triple involved in a violation." ;
     rdfs:domain rvo:SchemaBlankNodeViolation , rvo:EdgeOrphanInstanceViolation , rvo:InstancePropertyViolation , rvo:InstanceBlankNodeViolation ;
-    rdfs:range rdf:Resource .
+    rdfs:range owl:Thing .
 
 # Classes
 
 # General classes
 
 rvo:Class a owl:Class ;
+    rdf:type rdfs:Class ;
     rdfs:label "Class" ;
     rdfs:comment "This is the class which produced a violation." .
 
